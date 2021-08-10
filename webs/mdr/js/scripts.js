@@ -27,9 +27,10 @@ $(document).ready(function(){
 function inicializarTypewriter(){
 
   //Si la página no es el home, no hacer nada
-  if(! $(body).hasClass('home')){
+  if(! $('body').hasClass('home')){
     return
   }
+
 
   //Volver visible el overlay
   $('.home-typewriter-overlay').addClass('is-visible');
