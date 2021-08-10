@@ -1,0 +1,287 @@
+html {
+  color: #222;
+  font-family: sans-serif;
+}
+
+.screen-readers {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.header-principal {
+  display: flex;
+  flex-direction: column;
+  min-height: 4em;
+  margin-bottom: 20px;
+}
+
+.header-principal .logo-mdr {
+  align-self: flex-start;
+}
+
+.header-principal h1 {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.header-principal div > * + * {
+  padding-top: 20px;
+}
+
+.header-principal nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.header-principal a {
+  text-decoration: none;
+}
+
+.header-principal li {
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .header-principal {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header-principal > .logo-mdr {
+    order: 100;
+  }
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: #222;
+}
+
+.typewrite-large {
+  font-size: 2em;
+}
+
+.texto-home {
+  font-family: "Cutive Mono", monospace;
+  text-align: center;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.texto-home.is-hidden {
+  display: none;
+}
+
+.botones-home button {
+  border: none;
+  background: none;
+  font-family: "Cutive Mono", monospace;
+  cursor: pointer;
+  font-size: 0.7em;
+}
+
+.home-typewriter-overlay {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: "Cutive Mono";
+  text-align: center;
+  background-color: #fff;
+  overflow-y: hidden;
+}
+
+.home-typewriter-overlay.is-visible {
+  display: block;
+}
+
+.home-typewriter-overlay .pagina {
+  padding-left: 60px;
+  padding-right: 60px;
+  position: absolute;
+  bottom: 60px;
+}
+
+.home-typewriter-overlay button {
+  font-family: "Cutive Mono", monospace;
+  color: #aaa;
+  background: none;
+  border: none;
+}
+
+.home-typewriter-overlay .botones {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0);
+  cursor: pointer;
+  font-size: 0.7em;
+}
+
+.seleccion-de-obras a {
+  margin-left: var(--offsetX);
+  margin-top: var(--offsetY);
+  display: flex;
+  text-decoration: none;
+}
+
+.seleccion-de-obras a h3 {
+  align-self: flex-start;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.seleccion-de-obras a > * + * {
+  padding-left: 20px;
+}
+
+.seleccion-de-obras a:hover * {
+  background-color: orange;
+}
+
+.seleccion-de-obras ul.grilla-base {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.seleccion-de-obras ul.grilla-base > * {
+  display: block;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 60px;
+  padding-right: 60px;
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .seleccion-de-obras ul.grilla-base > * {
+    width: 40%;
+  }
+}
+
+.seleccion-de-obras ul.artistas {
+  list-style: none;
+}
+
+.scrambled-text {
+  font-family: "Cutive Mono";
+  font-size: 1.4em;
+  color: #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  text-align: center;
+}
+
+.scrambled-text * {
+  position: absolute;
+  left: calc(50vw + var(--offsetX));
+  top: calc(50vh + var(--offsetY));
+  transform: translate(-50%, -50%);
+}
+
+.footer-ficciones-y-obras {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.grilla-bios .bio {
+  position: relative;
+  cursor: pointer;
+}
+
+.grilla-bios .bio img {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grilla-bios .bio p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.grilla-bios .bio p.is-active {
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.l-container {
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.l-cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.l-cover .l-cover-main {
+  flex-grow: 1;
+}
+
+.l-stack {
+  padding-top: 20px;
+}
+
+.l-stack > * {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.l-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.l-grid > * {
+  padding: 40px;
+  box-sizing: border-box;
+  height: 300px;
+  width: 50%;
+}
+
+@media screen and (min-width: 800px) {
+  .l-grid > * {
+    width: 20%;
+  }
+}
