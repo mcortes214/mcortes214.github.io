@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es_AR" class="js-hasSoftScroll">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/estilo.css">
+        <title>Mariela Yeregui</title>
+    </head>
+
+    <body class="home">
+        <!--Globales:Tienen que quedar por fuera de main, que va a ser el elemento scrolleado.
+-->
+        <nav class="navegacion-principal">
+            <div class="overlay-menu-open"></div><img class="icono toggle-menu" src="img/icono-menu.svg" />
+            <div class="nombre-seccion-actual"></div>
+            <ul class="menu-principal">
+                <li class="item-menu-principal" id="js-item-menu-portada"><a href="#portada"><img class="icono" src="img/icono-logo.svg" /><span>Inicio</span></a></li>
+                <li class="item-menu-principal"><a href="/#obras"><img class="icono" src="img/icono-obras.svg" id="js-defineMenuGapWidth" /><span>Obras</span></a></li>
+                <li class="item-menu-principal"><a href="/#bio"><img class="icono" src="img/icono-bio.svg" /><span>Bio</span></a></li>
+                <li class="item-menu-principal"><a href="/#statement"><img class="icono" src="img/icono-statement.svg" /><span>Statement</span></a></li>
+                <li class="item-menu-principal"><a href="/#academico"><img class="icono" src="img/icono-academico.svg" /><span>Académico</span></a></li>
+                <li class="item-menu-principal"><a href="/#novedades"><img class="icono" src="img/icono-novedades.svg" /><span>Novedades</span></a></li>
+                <li class="item-menu-principal"><a href="/#contacto"><img class="icono" src="img/icono-contacto.svg" /><span>Contacto</span></a></li>
+            </ul>
+        </nav>
+        <main class="adjust-to-menu-width">
+            <section class="ignore-menu-width" id="portada"><video class="video-bg-portada" src="video/portada.mp4" mute="mute" autoplay="autoplay" loop="loop"></video>
+                <div class="c-neutral"><a class="branding"><img class="icono" src="img/icono-logo.svg" />
+                        <h1>Mariela Yeregui</h1>
+                    </a></div>
+            </section>
+            <section id="obras">
+                <h2 class="invisible">Obras</h2>
+                <div class="c-pile">
+                    <div class="cover">
+                        <div class="banner-titulo cover-main" style="--bg: url(/img/obras/1.jpg)">Obras</div><img class="flecha icono" src="img/icono-flecha-abajo.svg" />
+                    </div>
+                    <div class="grilla-paneles"><a href="categoria.html" style="--bg: url(/img/obras/1.jpg)"><span>Acciones/Actions</span></a><a href="categoria.html" style="--bg: url(/img/obras/2.jpg)"><span>Espacio público/Public space</span></a><a href="categoria.html" style="--bg: url(/img/obras/3.png)"><span>Instalaciones/Installations</span></a><a href="categoria.html" style="--bg: url(/img/obras/4.png)"><span>Net.art</span></a><a href="categoria.html" style="--bg: url(/img/obras/5.png)"><span>Objetos-esculturas/Objects-sculptures</span></a><a href="categoria.html" style="--bg: url(/img/obras/6.jpg)"><span>Audiovisual</span></a></div>
+                </div>
+            </section>
+            <section id="bio">
+                <h2 class="invisible">Bio</h2>
+                <div class="c-panels">
+                    <div class="seccion-texto">
+                        <p>apienit restiat usdame volorrovit optatur asitatur magnatem apide que et ut omnihictis id ulpa sus esciis solest, quis que nis explam intio maximai oreptatin premporum quostorpos dolorem illab imendi ut iniatiae peribus dero quat at.</p>
+                        <p>id eatur ra ipic tendundiore, ut omnim quibus, commod maxim in consequias ea dollabori soluptam, corporepel maioressim ende pos net mod ut latur arum essimodit optus aute exerfer ovitium fugias aciisiti remquuntio. Nem as magnis in niam ipitatur?</p>
+                        <p>ebit lab imolupt atquossitia sapita volecepe et voluptatur mosam, se voles dolumquam que di andant volorit officaborrum ipitis ut doluption poreruntet facepedipsam que sed moditatum, excepel iquunt volesento et</p><button>Descargar CV</button>
+                    </div>
+                    <div class="img-parallax" style="--bg: url(/img/obras/1.jpg)"></div>
+                </div>
+            </section>
+            <section id="statement">
+                <h2 class="invisible">Statement</h2>
+                <div class="c-panels flip">
+                    <div class="seccion-texto">
+                        <p>apienit restiat usdame volorrovit optatur asitatur magnatem apide que et ut omnihictis id ulpa sus esciis solest, quis que nis explam intio maximai oreptatin premporum quostorpos dolorem illab imendi ut iniatiae peribus dero quat at.</p>
+                        <p>id eatur ra ipic tendundiore, ut omnim quibus, commod maxim in consequias ea dollabori soluptam, corporepel maioressim ende pos net mod ut latur arum essimodit optus aute exerfer ovitium fugias aciisiti remquuntio. Nem as magnis in niam ipitatur?</p>
+                        <p>ebit lab imolupt atquossitia sapita volecepe et voluptatur mosam, se voles dolumquam que di andant volorit officaborrum ipitis ut doluption poreruntet facepedipsam que sed moditatum, excepel iquunt volesento et</p>
+                    </div>
+                    <div class="img-parallax" style="--bg: url(/img/obras/2.jpg)"></div>
+                </div>
+            </section>
+            <section class="separador-secciones" id="academico">
+                <h2 class="invisible">Académico</h2>
+                <div class="c-stack">
+                    <div class="categoria-academico">
+                        <div class="box-titulo-academico">
+                            <div class="js_vertical-box"></div>
+                            <h3 class="js_verticalize">Publicaciones</h3>
+                        </div>
+                        <div class="lista academico">
+                            <div class="seccion-texto">
+                                <h4>Título de publicación</h4>
+                                <p>ectus, oca orisses co es at vis terfex sum ingul te menstrum is convehem, qui sidesiliem pra di factur, Catura non sulti, quid Castiss.</p><a class="link-boton" href="academico1.html">Leer más</a>
+                            </div>
+                            <div class="seccion-texto">
+                                <h4>Título de publicación</h4>
+                                <p>ectus, oca orisses co es at vis terfex sum ingul te menstrum is convehem, qui sidesiliem pra di factur, Catura non sulti, quid Castiss.</p><a class="link-boton" href="academico1.html">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="categoria-academico">
+                        <div class="box-titulo-academico">
+                            <h3>Cursos</h3>
+                        </div>
+                        <div class="lista academico">
+                            <div class="seccion-texto">
+                                <h4>Título de curso</h4>
+                                <p>Ectus, oca orisses co es at vis terfex sum ingul te menstrum is convehem, qui sidesiliem pra di factur, Catura non sulti, quid Castiss.</p><a class="link-boton" href="academico1.html">Leer más</a>
+                            </div>
+                            <div class="seccion-texto">
+                                <h4>Título de curso</h4>
+                                <p>Ectus, oca orisses co es at vis terfex sum ingul te menstrum is convehem, qui sidesiliem pra di factur, Catura non sulti, quid Castiss.</p><a class="link-boton" href="academico1.html">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="separador-secciones" id="novedades">
+                <h2 class="invisible">Novedades</h2>
+                <div class="c-grid">
+                    <div class="card-imagen"><img src="img/obras/1.jpg" />
+                        <div class="seccion-texto">
+                            <h4>Título de post</h4>
+                            <p class="meta">Fecha de post</p>
+                            <p>Ectus, oca orisses co es at vis terfex sum ingul te menstrum is convehem, qui sidesiliem pra di factur, Catura non sulti, quid Castiss.</p><a href="novedad1.html">Leer más</a>
+                        </div>
+                    </div>
+                    <div class="card-imagen"><img src="img/obras/2.jpg" />
+                        <div class="seccion-texto">
+                            <h4>Título de post</h4>
+                            <p class="meta">Fecha de post</p>
+                            <p>Ectus, oca orisses co es at vis terfex sum ingul te menstrum is convehem, qui sidesiliem pra di factur, Catura non sulti, quid Castiss. </p><a href="novedad1.html">Leer más</a>
+                        </div>
+                    </div>
+                    <div class="card-imagen"><img src="img/obras/3.png" />
+                        <div class="seccion-texto">
+                            <h4>Título de post</h4>
+                            <p class="meta">Fecha de post</p>
+                            <p>Ectus, oca orisses co es at vis terfex sum ingul te menstrum is convehem, qui sidesiliem pra di factur, Catura non sulti, quid Castiss. </p><a href="novedad1.html">Leer más</a>
+                        </div>
+                    </div>
+                    <div class="card-imagen"><img src="img/obras/4.png" />
+                        <div class="seccion-texto">
+                            <h4>Título de post</h4>
+                            <p class="meta">Fecha de post</p>
+                            <p>Ectus, oca orisses co es at vis terfex sum ingul te menstrum is convehem, qui sidesiliem pra di factur, Catura non sulti, quid Castiss. </p><a href="novedad1.html">Leer más</a>
+                        </div>
+                    </div>
+                    <div class="card-imagen"><img src="img/obras/5.png" />
+                        <div class="seccion-texto">
+                            <h4>Título de post</h4>
+                            <p class="meta">Fecha de post</p>
+                            <p>Ectus, oca orisses co es at vis terfex sum ingul te menstrum is convehem, qui sidesiliem pra di factur, Catura non sulti, quid Castiss. </p><a href="novedad1.html">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="contacto">
+                <h2 class="invisible">Contacto</h2>
+                <div class="c-centered-cards">
+                    <div class="seccion-texto card-icono"><img class="icono" src="img/icono-mail.svg" />
+                        <div class="label">Mail</div>
+                        <div>XXXXXXXX</div>
+                    </div>
+                    <div class="seccion-texto card-icono"><img class="icono" src="img/icono-tel.svg" />
+                        <div class="label">Teléfono</div>
+                        <div>XXXXXXXX</div>
+                    </div>
+                    <div class="seccion-texto card-icono"><img class="icono" src="img/icono-redes.svg" />
+                        <div class="label">Redes sociales</div>
+                        <div>XXXXXXXX</div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+
+
+
+                    <script src="/js/scripts.js" charset="utf-8"></script>
+                </div>
+            </section>
+        </main>
+    </body>
+
+</html>
