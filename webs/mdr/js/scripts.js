@@ -44,7 +44,7 @@ function inicializarTypewriter(){
     console.log('completo');
   })
   .typewrite({
-    speed: 85,
+    speed: 45,
     showCursor: false,
     blinkingCursor: false,
       actions: [
