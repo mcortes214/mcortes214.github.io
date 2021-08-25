@@ -116,10 +116,10 @@ if($('body').hasClass('home')){
   if (! isMobile.any){
     var backgroundVideo = document.createElement('video');
     backgroundVideo.classList.add('video-bg-portada');
+    backgroundVideo.setAttribute('muted', 'muted');
+    backgroundVideo.setAttribute('preload', 'auto');
     backgroundVideo.setAttribute('autoplay', 'autoplay');
     backgroundVideo.setAttribute('loop', 'loop');
-    backgroundVideo.setAttribute('preload', 'auto');
-    backgroundVideo.setAttribute('muted', 'muted');
     backgroundVideo.setAttribute('src', 'video/portada.mp4');
     var portada = document.querySelector('.js-portada');
     portada.appendChild(backgroundVideo);
@@ -137,12 +137,10 @@ if($('body').hasClass('home')){
       'Contacto'  : '#contacto'
     },
     updateTarget  : function(){
-                      console.log(window.scrollY);
                       var sectionIndex = 0;
                       while(this.sectionRanges[sectionIndex] < window.scrollY+window.innerHeight/2){
                         sectionIndex++;
                       }
-                      console.log(sectionIndex);
                       //usa indexOf para identificar el nombre de sección
                       if(this.sectionNames[sectionIndex-1]){
                         //Modificar nombre
@@ -155,8 +153,6 @@ if($('body').hasClass('home')){
 
   //Y chequear scroll para definir estado del menu
   window.addEventListener('scroll',function(e){
-    console.log('affa');
-
       if(window.scrollY > 0){
         menu.setState("compressed");
       }
@@ -205,14 +201,12 @@ else if($('body').hasClass('obra')){
                         while(this.sectionRanges[sectionIndex] < window.scrollY+window.innerHeight/2){
                           sectionIndex++;
                         }
-                        console.log(sectionIndex);
                         //Elegir selector de la lista
                         //Si existe el índice
                         if(this.sectionNames[sectionIndex-1]){
                           //Modificar nombre
                           var id = this.sectionNames[sectionIndex-1];
                           var itemActivo = document.getElementById(id);
-                          console.log(itemActivo);
                           //Resetear clases
                           $('.navegacion-galeria a').removeClass('active');
                           //Agregar clase al nuevo item activo
