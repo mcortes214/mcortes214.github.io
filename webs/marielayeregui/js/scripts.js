@@ -126,6 +126,23 @@ if($('body').hasClass('home')){
     portada.style.backgroundImage = 'none';
   }
 
+  //Tratar de reproducir el video.
+
+  var video = document.getElementsByTagName('video')[0];
+  console.log('Video element:');
+  console.log(video);
+
+  var backgroundVideoInterval = window.setInterval(function(){
+    console.log('attempting to play video...');
+    video.play();
+  },250);
+
+  video.addEventListener('play', (event) => {
+    console.log('playing video');
+    clearInterval(backgroundVideoInterval);
+  });
+
+
   //Habilitar scrollspy de home
   var scrollspy = new Scrollspy('#js-titulo-seccion-actual', {
     sections: {
