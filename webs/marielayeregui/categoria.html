@@ -6,70 +6,158 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" href="/css/estilo.css">
+
+        <script type="text/javascript">
+            (function() {
+                var a = {};
+                var f = /iPhone/i,
+                    h = /iPod/i,
+                    i = /iPad/i,
+                    r = /\biOS-universal(?:.+)Mac\b/i,
+                    g = /\bAndroid(?:.+)Mobile\b/i,
+                    j = /Android/i,
+                    c = /(?:SD4930UR|\bSilk(?:.+)Mobile\b)/i,
+                    d = /Silk/i,
+                    b = /Windows Phone/i,
+                    k = /\bWindows(?:.+)ARM\b/i,
+                    m = /BlackBerry/i,
+                    n = /BB10/i,
+                    o = /Opera Mini/i,
+                    p = /\b(CriOS|Chrome)(?:.+)Mobile/i,
+                    q = /Mobile(?:.+)Firefox\b/i;
+
+                function s(l) {
+                    return function($) {
+                        return $.test(l)
+                    }
+                }
+
+                function e(l) {
+                    var $ = (l = l || ("undefined" != typeof navigator ? navigator.userAgent : "")).split("[FBAN");
+                    void 0 !== $[1] && (l = $[0]), void 0 !== ($ = l.split("Twitter"))[1] && (l = $[0]);
+                    var a = s(l),
+                        e = {
+                            apple: {
+                                phone: a(f) && !a(b),
+                                ipod: a(h),
+                                tablet: !a(f) && a(i) && !a(b),
+                                universal: a(r),
+                                device: (a(f) || a(h) || a(i)) && !a(b)
+                            },
+                            amazon: {
+                                phone: a(c),
+                                tablet: !a(c) && a(d),
+                                device: a(c) || a(d)
+                            },
+                            android: {
+                                phone: !a(b) && a(c) || !a(b) && a(g),
+                                tablet: !a(b) && !a(c) && !a(g) && (a(d) || a(j)),
+                                device: !a(b) && (a(c) || a(d) || a(g) || a(j)) || a(/\bokhttp\b/i)
+                            },
+                            windows: {
+                                phone: a(b),
+                                tablet: a(k),
+                                device: a(b) || a(k)
+                            },
+                            other: {
+                                blackberry: a(m),
+                                blackberry10: a(n),
+                                opera: a(o),
+                                firefox: a(q),
+                                chrome: a(p),
+                                device: a(m) || a(n) || a(o) || a(q) || a(p)
+                            },
+                            any: !1,
+                            phone: !1,
+                            tablet: !1
+                        };
+                    return e.any = e.apple.universal || e.apple.device || e.android.device || e.windows.device || e.other.device, e.phone = e.apple.phone || e.android.phone || e.windows.phone, e.tablet = e.apple.tablet || e.android.tablet || e.windows.tablet, e
+                }
+                a = e();
+                if (typeof exports === "object" && typeof module !== "undefined") {
+                    module.exports = a
+                } else if (typeof define === "function" && define.amd) {
+                    define(function() {
+                        return a
+                    })
+                } else {
+                    this["isMobile"] = a
+                }
+            })();
+        </script>
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/estilo.css">
         <title>Mariela Yeregui</title>
     </head>
 
     <body>
         <!--Globales:Tienen que quedar por fuera de main, que va a ser el elemento scrolleado.
 -->
-        <nav class="navegacion-principal"><img class="toggle-menu" />
-            <div class="nombre-seccion-actual"></div>
+        <nav class="navegacion-principal">
+            <div class="overlay-menu-open"></div><img class="icono toggle-menu" src="img/icono-menu.svg" />
+            <div class="box-titulo-seccion-actual">
+                <div class="titulo-seccion-actual" id="js-titulo-seccion-actual"></div>
+            </div>
             <ul class="menu-principal">
-                <li class="item-menu-principal"><a href="/#portada"><img class="icono" src="" /><span>Inicio</span></a></li>
-                <li class="item-menu-principal"><a href="/#obras"><img class="icono" src="" /><span>Obras</span></a></li>
-                <li class="item-menu-principal"><a href="/#bio"><img class="icono" src="" /><span>Bio</span></a></li>
-                <li class="item-menu-principal"><a href="/#statement"><img class="icono" src="" /><span>Statement</span></a></li>
-                <li class="item-menu-principal"><a href="/#academico"><img class="icono" src="" /><span>Académico</span></a></li>
-                <li class="item-menu-principal"><a href="/#novedades"><img class="icono" src="" /><span>Novedades</span></a></li>
-                <li class="item-menu-principal"><a href="/#contacto"><img class="icono" src="" /><span>Contacto</span></a></li>
+                <li class="item-menu-principal" id="js-item-menu-portada"><a href="index.html#portada"><img class="icono" src="img/icono-logo.svg" /><span>Inicio</span></a></li>
+                <li class="item-menu-principal"><a href="index.html#obras"><img class="icono" src="img/icono-obras.svg" id="js-defineMenuGapWidth" /><span>Obras</span></a></li>
+                <li class="item-menu-principal"><a href="index.html#bio"><img class="icono" src="img/icono-bio.svg" /><span>Bio</span></a></li>
+                <li class="item-menu-principal"><a href="index.html#statement"><img class="icono" src="img/icono-statement.svg" /><span>Statement</span></a></li>
+                <li class="item-menu-principal"><a href="index.html#academico"><img class="icono" src="img/icono-academico.svg" /><span>Académico</span></a></li>
+                <li class="item-menu-principal"><a href="index.html#novedades"><img class="icono" src="img/icono-novedades.svg" /><span>Novedades</span></a></li>
+                <li class="item-menu-principal"><a href="index.html#contacto"><img class="icono" src="img/icono-contacto.svg" /><span>Contacto</span></a></li>
             </ul>
         </nav>
-        <main>
-            <section class="c-stack" id="categoria-obras">
-                <div class="breadcrumbs">
-                    <div>Obras</div><img class="icono-breadcrumbs" />
-                </div>
-                <h1>Acciones-espacio público/&#8203;Actions-public space</h1><a class="card-horizontal">
-                    <div class="seccion-texto">
-                        <h2>Bordes (todas las utopías son deprimentes)/&#8203;Borders (all utopias are depressing)</h2>
-                        <p class="meta">(2019/2020)</p>
-                    </div>
-                    <div class="imagen-obra" style="background-image: url('/img/obras/1.jpg')"></div>
-                </a><a class="card-horizontal">
-                    <div class="seccion-texto">
-                        <h2>Confesionario Textil/&#8203;Textile Confessional</h2>
-                        <p class="meta">(2019)</p>
-                    </div>
-                    <div class="imagen-obra" style="background-image: url('/img/obras/2.jpg')"></div>
-                </a><a class="card-horizontal">
-                    <div class="seccion-texto">
-                        <h2>Re-escrituras/&#8203;Re-writings</h2>
-                        <p class="meta">(2016-2020)</p>
-                    </div>
-                    <div class="imagen-obra" style="background-image: url('/img/obras/3.png')"></div>
-                </a><a class="card-horizontal">
-                    <div class="seccion-texto">
-                        <h2>Escrituras/&#8203;Writings</h2>
-                        <p class="meta">(2019)</p>
-                    </div>
-                    <div class="imagen-obra" style="background-image: url('/img/obras/4.png')"></div>
-                </a><a class="card-horizontal">
-                    <div class="seccion-texto">
-                        <h2>En el fondo de todo hay un jardín/&#8203;There is always a garden on the back of everything</h2>
-                        <p class="meta">(2016-2018)</p>
-                    </div>
-                    <div class="imagen-obra" style="background-image: url('/img/obras/5.png')"></div>
-                </a><a class="card-horizontal">
-                    <div class="seccion-texto">
-                        <h2>Hipertexto/&#8203;Hypertext</h2>
-                        <p class="meta"></p>
-                    </div>
-                    <div class="imagen-obra" style="background-image: url('/img/obras/6.jpg')"></div>
-                </a>
+        <main class="adjust-to-menu-width top-page-padded">
+            <section class="c-stack--s3" id="categoria-obras">
+                <div class="breadcrumbs"><a href="index.html#obras">Obras</a></div>
+                <h1>Acciones-espacio público/&#8203;Actions-public space</h1>
+                <div class="listado-obras"><a class="card-horizontal" href="obra.html">
+                        <div class="cuadro-texto">
+                            <h2>Bordes (todas las utopías son deprimentes)/&#8203;Borders (all utopias are depressing)</h2>
+                            <p class="meta">(2019/2020)</p>
+                        </div>
+                        <div class="imagen-obra" style="background-image: url('/img/obras/1.jpg')"></div>
+                    </a><a class="card-horizontal" href="obra.html">
+                        <div class="cuadro-texto">
+                            <h2>Confesionario Textil/&#8203;Textile Confessional</h2>
+                            <p class="meta">(2019)</p>
+                        </div>
+                        <div class="imagen-obra" style="background-image: url('/img/obras/2.jpg')"></div>
+                    </a><a class="card-horizontal" href="obra.html">
+                        <div class="cuadro-texto">
+                            <h2>Re-escrituras/&#8203;Re-writings</h2>
+                            <p class="meta">(2016-2020)</p>
+                        </div>
+                        <div class="imagen-obra" style="background-image: url('/img/obras/3.png')"></div>
+                    </a><a class="card-horizontal" href="obra.html">
+                        <div class="cuadro-texto">
+                            <h2>Escrituras/&#8203;Writings</h2>
+                            <p class="meta">(2019)</p>
+                        </div>
+                        <div class="imagen-obra" style="background-image: url('/img/obras/4.png')"></div>
+                    </a><a class="card-horizontal" href="obra.html">
+                        <div class="cuadro-texto">
+                            <h2>En el fondo de todo hay un jardín/&#8203;There is always a garden on the back of everything</h2>
+                            <p class="meta">(2016-2018)</p>
+                        </div>
+                        <div class="imagen-obra" style="background-image: url('/img/obras/5.png')"></div>
+                    </a><a class="card-horizontal" href="obra.html">
+                        <div class="cuadro-texto">
+                            <h2>Hipertexto/&#8203;Hypertext</h2>
+                            <p class="meta"></p>
+                        </div>
+                        <div class="imagen-obra" style="background-image: url('/img/obras/6.jpg')"></div>
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+
+
+
+                        <script src="js/scripts.js" charset="utf-8"></script>
+                    </a></div>
             </section>
         </main>
     </body>
