@@ -8,69 +8,145 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/estilos.css">
         <title>Créditos y artistas</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/mi-propio-typewriter.js"></script>
     </head>
 
     <body class="l-container l-cover">
         <header class="header-principal">
-            <div class="logo-mdr"><a href="ficciones-y-obras.html"><img src="img/logo-mdr.svg" /></a></div>
-            <div>
+            <div class="menu-mdr"><a href="ficciones-y-obras.html"><img src="img/logo-mdr.svg" /></a>
                 <nav class="menu-general-header">
                     <h2 class="screen-readers">Navegación</h2>
                     <ul>
                         <li><a href="ficciones-y-obras.html">Ficciones y Obras</a></li>
-                        <li><a href="creditos-y-artistas.html">Créditos y Artistas</a></li>
+                        <li><a class="active" href="creditos-y-artistas.html">Créditos y Artistas</a></li>
                         <li><a href="texto-y-contexto.html">Texto y Contexto</a></li>
                     </ul>
                 </nav>
+            </div>
+            <div>
                 <h1>Créditos y artistas</h1><span class="subtitulo-header"></span>
             </div>
         </header>
-        <div class="grilla-bios l-grid l-cover-main">
-            <div class="bio"><img src="/img/bios/1.jpg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/2.jpg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/3.jpg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/4.jpeg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/5.jpeg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/6.jpg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/7.jpg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/8.jpg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/9.jpg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/10.jpeg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/11.jpg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/12.jpeg" />
-                <p>Texto de prueba</p>
-            </div>
-            <div class="bio"><img src="/img/bios/13.jpg" />
-                <p>Texto de prueba</p>
+        <div class="l-grid l-cover-main l-cluster">
+            <div class="l-cluster__inner grilla-bios">
+                <div class="bio"><img src="https://via.placeholder.com/500.jpg/fff/fff" />
+                    <div class="texto-bio">
+                        <h3>Lilian Margulis</h3>
+                        <div>
+                            <p>Durante la pandemia comencé a trabajar más profundamente en la bidimensión: litografía, sellos, transparencias. Una imagen barroca de superposiciones y un mínimo de color. También volví al mosaico contemporáneo con vidrios, esmaltes, mármoles, piedras, una técnica antiquísima como lo es la litografía. Volver a lo más antiguo, a los orígenes.</p>
+                            <a href="http://lilianmargulisart.com.ar" target="_blank">http://lilianmargulisart.com.ar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio"><img src="https://via.placeholder.com/500.jpg/fff/fff" />
+                    <div class="texto-bio">
+                        <h3>Laura Nucenovich</h3>
+                        <div>
+                            <p>Me defino como escultora, dedicada a buscar y darle sentido a lo que hago y a lo que percibo. Experimento en el hacer escultórico una práctica que a lo largo de mi carrera me permitió tener voz propia. </p>
+                            <p>La materialidad y el espacio se imponen y surge así el diálogo equilibrado entre la forma y el vacío, entre lo pesado y lo liviano.</p>
+                            <a href="https://www.lauranucenovich.com" target="_blank">https://www.lauranucenovich.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio"><img src="/img/bios/marina-btesh.jpg" />
+                    <div class="texto-bio">
+                        <h3>Marina Btesh</h3>
+                        <div>
+                            <p>Mi trabajo se originaba en la materialidad y sus posibilidades de transformación y siempre buscaba la participación del espectador. Al comenzar la pandemia todo cambió, en este nuevo contexto no pude usar mis “recursos”.</p>
+                            <p>Primero fue la idea. Después, o al mismo tiempo, con virtualidad y protocolos mediante, trabajamos en equipo. Un proceso muy rico de una reunión semanal que nos sostuvo y nos trajo hasta aquí. Una obra que es más que la suma de las tres.</p>
+                            <a href="http://www.marinabtesh.com.ar" target="_blank">http://www.marinabtesh.com.ar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio"><img src="/img/bios/silvina-de-las-carreras.jpg" />
+                    <div class="texto-bio">
+                        <h3>Silvina de las Carreras</h3>
+                        <div>
+                            <p>Marzo 2020. Se me abre un espacio de comunicación a través del video: comienzo a escribir, editar y filmar mis textos. En algunos casos se enlaza con mi obra anterior a la pandemia en otros no.
+                                <br>Barro,
+                                <br>amaso pan,
+                                <br>medito
+                                <br>y escribo.
+                            </p>
+                            <a href="https://silvinadelascarreras.com.ar/contacto.html" target="_blank">https://silvinadelascarreras.com.ar/contacto.html</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio"><img src="/img/bios/gabriela-esterovich.jpg" />
+                    <div class="texto-bio">
+                        <h3>Gabriela Esterovich</h3>
+                        <div>
+                            <p>(Bio del encierro)</p>
+                            <p>Es en la vida anterior, donde me nombro artista visual y educadora. Dos pasiones que se ensamblan, y marcan la visión de mi trabajo. Es en este nuevo presente, atravesado por la emergencia de los cuerpos y la laxitud del tiempo, donde se me instala, imperativamente, la conciencia de formar parte de una especie en riesgo de extinción.</p>
+                            <p>Es en este colapso, donde mi línea de flotación se sostiene en el camino del trabajo colectivo. “Preguntas para después” es la materialidad que asumió nuestro proceso creativo desde esta nueva e imprescindible manera de encontrarnos.</p>
+                            <a href="http://www.gabrielaesterovich.com" target="_blank">http://www.gabrielaesterovich.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio"><img src="/img/bios/miriam-hecht.jpg" />
+                    <div class="texto-bio">
+                        <h3>Miriam Hecht</h3>
+                        <div>
+                            <p>Mis obras en general proponen (o proponían...) encuentros con los otros. Ante la imposibilidad de reunirnos durante la pandemia, que se ha vuelto cotidiana y larga, me tuve que reinventar. Creé personajes cuyas emociones representan el sentir de muchos de nosotros en esta “nueva realidad”. Insisto en el encuentro.</p>
+                            <a href="https://www.miriamhecht.com.ar" target="_blank">https://www.miriamhecht.com.ar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio"><img src="/img/bios/gabriela-berutti.jpg" />
+                    <div class="texto-bio">
+                        <h3>Gabriela Berutti</h3>
+                        <div>
+                            <p>Lo que pensaba escribir hace unos meses quedó confundido en mi cabeza.
+                                <br>Soy la misma de siempre, pero también voy cambiando.
+                                <br>Soy ceramista y artista.
+                                <br>Además, trabajo con textil y fotografía.
+                                <br>La naturaleza y mi entorno me alimentan.
+                                <br>Tengo una huerta que con la pandemia se convirtió en huerta de monocultivo: sólo tomates.
+                                <br>Sembré apasionadamente más de cien semillas. ¡Germinaron todas!
+                                <br>Estoy casada y tengo tres hijos
+                                <br>Estos últimos meses he dividido mi tiempo entre Buenos Aires y Córdoba.
+                            </p>
+                            <a href="https://www.instagram.com/gabriela_berutti/" target="_blank">@gabriela_berutti</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio"><img src="/img/bios/sandra-marinescu.jpg" />
+                    <div class="texto-bio">
+                        <h3>Sandra Marinescu</h3>
+                        <div>
+                            <p>Soy artista visual. En mi producción integro arte y ciencia intentando alterar el sentido de lo que vemos y de cómo construimos el significado de la imagen que percibimos utilizando diferentes lenguajes.</p>
+                            <a href="https://www.sandramarinescu.com" target="_blank">https://www.sandramarinescu.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio"><img src="https://via.placeholder.com/500.jpg/fff/fff" />
+                    <div class="texto-bio">
+                        <h3>Sara Slipchinsky</h3>
+                        <div>
+                            <p>Sorprendida por la pandemia y la consecuente cuarentena, quizás también por mi profesión de psicóloga, puse énfasis en reconocer mis emociones. Empecé a compartirlo con toda la gente con la que me comunico y descubrí un denominador común: los altibajos y las modificaciones de los estados de ánimos repentinos en distintos momentos del día. Comencé a escribir y a trabajar en mis obras sobre este tema. </p>
+                            <p>Vivo sola pero pude continuar con ambas profesiones sin salir de mi casa por mucho tiempo. Esto me permitió tolerar mejor el tránsito de las diferentes etapas en esta pandemia, a pesar de las consecuentes pérdidas de distinta naturaleza sufridas durante la misma.</p>
+                            <a href="http://www.saraslipchinsky.com" target="_blank">http://www.saraslipchinsky.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio"><img src="https://via.placeholder.com/500.jpg/fff/fff" />
+                    <div class="texto-bio">
+                        <h3>Analía Hahn</h3>
+                        <div>
+                            <p>Pandemia, cuarentena y aislamiento llegaron de improviso a mi vida cotidiana. Sea por el desconcierto o el miedo a lo desconocido les abrí las puertas del taller sin dudarlo y se instalaron muy cómodamente. Ahora se torna difícil la convivencia...</p>
+                            <p>Algunos días mi espacio me queda grande y siento que ya no puedo crear nada, otros, por suerte cada vez más seguido, mi taller queda chiquito ante tanto hacer y deshacer creativo.</p>
+                            <p>Tiempo nuevo: donde las emociones atraviesan, donde aparecieron las pérdidas y donde se evidencian las limitaciones me llevó a una búsqueda de nuevos materiales y disciplinas. Resulta entonces una otra obra, una obra distinta, una obra transitada por otro camino pero siempre desde mi mirada y con mi sello.</p>
+                            <a href="https://www.analiahahn.com" target="_blank">https://www.analiahahn.com</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer-ficciones-y-obras"><a href="/index.html">Volver a sala general</a></div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/typewrite.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
     </body>
 
