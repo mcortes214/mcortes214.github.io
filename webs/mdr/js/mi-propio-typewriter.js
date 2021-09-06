@@ -14,7 +14,9 @@ function setupTypewriter(){
   // TODO: pasar a funciones y clases de estado
     //"Activar" viewport limitado
     var viewport = document.querySelector('.viewport');
-    const alturaBotonesHome = document.querySelector('.botones-home').offsetHeight;
+    // HACK: estoy metiendo referencias que no van acá adentro.
+    // const alturaBotonesHome = document.querySelector('.botones-home').offsetHeight;
+    const alturaBotonesHome = 0; //TEMPORAL. porque saqué los botones
     const alturaViewport = window.innerHeight;
     console.log(alturaBotonesHome);
     console.log(alturaViewport);
@@ -39,7 +41,7 @@ function setupTypewriter(){
         clearInterval(delayVisibilizacionDeLetras);
         endTypewriter();
       }
-    },35);
+    },20);
 }
 
 
@@ -55,7 +57,7 @@ function spanify(){
   var parrafosTextoHome = document.querySelectorAll('.texto-home p');
   for (var parrafo of parrafosTextoHome){
     //Reemplazar whitespaces por "⠀" (blank braille character)
-    parrafo.innerHTML = parrafo.textContent.replace(/\s/g, "⠀");
+    parrafo.innerHTML = parrafo.textContent.replace(/\s/g, " ");
     //Envolver cada letra en un span.
     parrafo.innerHTML = parrafo.textContent.replace(/\S|\s/g, "<span class='letter'>$&</span>");
   }
@@ -81,12 +83,18 @@ function endTypewriter(){
     clearInterval(delayVisibilizacionDeLetras);
     $('.texto-home .letter').css({'opacity':'1', 'height': '1em'});
 
-  //Desactivar viewport limitado
-  var viewport = document.querySelector('.viewport');
-  $(viewport).removeClass('is-restricted');
-  //Activar scroll desde abajo
-  var contenedorTextoHome = document.querySelector('.texto-home');
-  $(contenedorTextoHome).css({
-    'position':'static',
-  });
+    //Redirigir a Texto y contexto.
+    setTimeout(function(){
+      window.location.href = "texto-y-contexto.html";
+    },3000);
+
+  // //Desactivar viewport limitado
+  // var viewport = document.querySelector('.viewport');
+  // $(viewport).removeClass('is-restricted');
+  // //Activar scroll desde abajo
+  // var contenedorTextoHome = document.querySelector('.texto-home');
+  // $(contenedorTextoHome).css({
+  //   'position':'static',
+  // });
+
 }

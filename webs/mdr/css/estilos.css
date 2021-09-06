@@ -63,7 +63,7 @@ body.color-negativo {
   margin: 0;
 }
 
-.header-principal div > * + * {
+.header-principal > div > * + * {
   display: block;
   padding-top: 20px;
 }
@@ -75,10 +75,22 @@ body.color-negativo {
   padding: 0;
   margin: 0;
   font-size: 0.9em;
+  /*cluster pattern*/
+  margin-left: -20px;
+  margin-top: -20px;
+  flex-direction: column;
 }
 
-.header-principal nav ul > * + * {
+@media (min-width: 800px) {
+  .header-principal nav ul {
+    flex-direction: row;
+  }
+}
+
+.header-principal nav ul > * {
+  /*cluster pattern*/
   padding-left: 20px;
+  padding-top: 20px;
 }
 
 .header-principal a {
@@ -187,12 +199,52 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   z-index: 10000;
 }
 
+.seleccion-de-obras {
+  /*Grilla de links*/
+  /*Links*/
+}
+
+.seleccion-de-obras ul.grilla-base {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 0;
+  padding-left: 0;
+  /*li*/
+}
+
+.seleccion-de-obras ul.grilla-base > * {
+  display: block;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 60px;
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .seleccion-de-obras ul.grilla-base > * {
+    width: 35%;
+    padding-left: 60px;
+  }
+}
+
+.seleccion-de-obras ul.grilla-base ul.artistas {
+  list-style: none;
+}
+
 .seleccion-de-obras a {
   transform-origin: right;
-  transform: translate(var(--offsetX), var(--offsetY));
+  transform: translate(0, 0);
+  justify-content: flex-start;
   display: flex;
   text-decoration: none;
-  justify-content: flex-end;
+}
+
+@media (min-width: 800px) {
+  .seleccion-de-obras a {
+    transform: translate(var(--offsetX), var(--offsetY));
+    justify-content: flex-end;
+  }
 }
 
 .seleccion-de-obras a h3 {
@@ -209,33 +261,6 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 .seleccion-de-obras a:hover * {
   background-color: #000;
   color: #fff;
-}
-
-.seleccion-de-obras ul.grilla-base {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  margin-top: 0;
-  padding-left: 0;
-}
-
-.seleccion-de-obras ul.grilla-base > * {
-  display: block;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 60px;
-  padding-right: 60px;
-  width: 100%;
-}
-
-@media screen and (min-width: 800px) {
-  .seleccion-de-obras ul.grilla-base > * {
-    width: 40%;
-  }
-}
-
-.seleccion-de-obras ul.artistas {
-  list-style: none;
 }
 
 .scrambled-text {
@@ -282,6 +307,12 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 .bio {
   display: flex;
   flex-direction: column;
+  font-size: 0.8em;
+}
+
+.bio p {
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .bio img {
@@ -383,9 +414,9 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 .l-series-invencion .grilla__internal > * {
   margin-left: 20px;
   margin-top: 20px;
-  background-color: red;
   width: calc(33% - 20px);
   height: 20em;
+  object-fit: contain;
 }
 
 .l-series-seccion-espaciada {
@@ -417,18 +448,34 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   margin-top: -20px;
 }
 
-.l-series-panel-dos-imagenes__internal img {
+.l-series-panel-dos-imagenes__internal div {
+  float: left;
+  position: relative;
   width: calc(100% - 20px);
   height: 30em;
-  background-color: #ddd;
   margin-left: 20px;
   margin-top: 20px;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 800px) {
-  .l-series-panel-dos-imagenes__internal img {
+  .l-series-panel-dos-imagenes__internal div {
     width: calc(50% - 20px);
   }
+}
+
+.l-series-panel-dos-imagenes__internal div img {
+  width: 100%;
+  transform: translate(0, -10%);
+}
+
+.l-series-panel-dos-imagenes__internal div .texto-superpuesto-blanco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 2em;
 }
 
 .l-series-lista .item {
