@@ -264,18 +264,19 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 }
 
 .scrambled-text {
-  margin-top: 57vh;
+  margin-top: 42vh;
   font-family: "Cutive Mono";
   font-size: 0.9em;
   color: #888;
   opacity: 0.65;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -5%;
   width: 100%;
   height: 100vh;
   z-index: -1;
   text-align: center;
+  letter-spacing: -.25em;
 }
 
 .scrambled-text * {
@@ -334,6 +335,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   }
   .bio .texto-bio {
     padding-left: 20px;
+    width: 66%;
   }
   .bio img {
     width: 33%;
@@ -380,6 +382,36 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 }
 
 /*CREADAS EN UN SANDBOX. Se van a integrar después al resto del código*/
+.l-series-glosario {
+  font-family: serif;
+  color: #000;
+  font-size: 1.2em;
+}
+
+.l-series-glosario ul {
+  min-height: 100vh;
+  list-style: none;
+  position: relative;
+}
+
+.l-series-glosario li {
+  position: absolute;
+  top: calc(30% + var(--dy));
+  left: calc(40% + var(--dx));
+  font-size: calc(1em * var(--ds));
+  opacity: .8;
+}
+
+@media (min-width: 800px) {
+  .l-series-glosario li {
+    font-size: calc(2em * var(--ds));
+  }
+}
+
+.l-series-glosario li a {
+  text-decoration: none;
+}
+
 .l-series-100vh {
   text-align: center;
   min-height: 100vh;
@@ -478,20 +510,62 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   font-size: 2em;
 }
 
-.l-series-lista .item {
-  margin-top: 20px;
+.l-series-lista {
   display: flex;
+  flex-wrap: wrap;
+  margin-top: -20px;
+  margin-left: -20px;
 }
 
-.l-series-lista .item img {
-  width: calc(50% - 20px);
-  height: 500px;
-  margin-right: 20px;
-  background-color: #eee;
+.l-series-lista .item {
+  position: relative;
+  margin-top: 20px;
+  margin-left: 20px;
+  /*ratio 1:1*/
+  width: 100%;
+  padding-top: 100%;
+  background-color: pink;
+}
+
+@media (min-width: 800px) {
+  .l-series-lista .item {
+    width: calc(50% - 20px);
+    padding-top: calc(50% - 20px);
+  }
+}
+
+.l-series-lista img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .l-series-lista .texto {
-  width: calc(50% - 20px);
-  align-self: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  padding: 5%;
+  box-sizing: border-box;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: #fff;
+  height: 33%;
+  font-size: .8em;
+  opacity: 0;
+  transition: .4s;
+}
+
+.l-series-lista .texto:hover {
+  opacity: 1;
+}
+
+.l-series-lista .texto > * {
+  margin: 0;
 }
