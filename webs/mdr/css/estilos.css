@@ -11,6 +11,10 @@
   font-weight: bold;
 }
 
+.centrado {
+  text-align: center;
+}
+
 html {
   color: #000;
   font-family: "Cooper Hewitt", sans-serif;
@@ -90,7 +94,13 @@ body.color-negativo {
 .header-principal nav ul > * {
   /*cluster pattern*/
   padding-left: 20px;
-  padding-top: 20px;
+  padding-top: 5px;
+}
+
+@media screen and (min-width: 800px) {
+  .header-principal nav ul > * {
+    padding-top: 20px;
+  }
 }
 
 .header-principal a {
@@ -111,6 +121,19 @@ body.color-negativo {
   .header-principal > .menu-mdr {
     order: 100;
     text-align: right;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .header-principal.header-home {
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .header-principal .nombres-artistas {
+    width: 50%;
+    font-size: 0.9em;
   }
 }
 
@@ -264,7 +287,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 }
 
 .scrambled-text {
-  margin-top: 42vh;
+  margin-top: 80vh;
   font-family: "Cutive Mono";
   font-size: 0.9em;
   color: #888;
@@ -287,6 +310,12 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 .scrambled-text p {
   max-width: 40vw;
   line-height: 1em;
+}
+
+@media screen and (min-width: 800px) {
+  .scrambled-text {
+    margin-top: 42vh;
+  }
 }
 
 .footer-ficciones-y-obras {
@@ -343,6 +372,17 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   }
 }
 
+.separador-caron {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--espacio3);
+}
+
+.separador-caron img {
+  width: 30px;
+}
+
 .l-container {
   width: 90vw;
   margin-left: auto;
@@ -389,7 +429,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 }
 
 .l-series-glosario ul {
-  min-height: 100vh;
+  min-height: 70vh;
   list-style: none;
   position: relative;
 }
@@ -448,7 +488,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   margin-top: 20px;
   width: calc(33% - 20px);
   height: 20em;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .l-series-seccion-espaciada {
@@ -484,7 +524,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   float: left;
   position: relative;
   width: calc(100% - 20px);
-  height: 30em;
+  height: 15em;
   margin-left: 20px;
   margin-top: 20px;
   overflow: hidden;
@@ -493,6 +533,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 @media screen and (min-width: 800px) {
   .l-series-panel-dos-imagenes__internal div {
     width: calc(50% - 20px);
+    height: 30em;
   }
 }
 
@@ -524,7 +565,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   /*ratio 1:1*/
   width: 100%;
   padding-top: 100%;
-  background-color: pink;
+  background-color: white;
 }
 
 @media (min-width: 800px) {
@@ -568,4 +609,8 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 
 .l-series-lista .texto > * {
   margin: 0;
+}
+
+.color-negativo .l-series-lista .texto {
+  color: black;
 }
