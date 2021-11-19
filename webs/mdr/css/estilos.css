@@ -15,6 +15,10 @@
   text-align: center;
 }
 
+.negrita {
+  font-weight: bold;
+}
+
 html {
   color: #000;
   font-family: "Cooper Hewitt", sans-serif;
@@ -54,12 +58,31 @@ body.color-negativo {
   margin-bottom: 20px;
 }
 
+.volvernos-virtuales .header-principal {
+  background: #fff;
+}
+
 .header-principal > * + * {
   padding-top: 20px;
 }
 
 .header-principal .menu-mdr {
   align-self: flex-start;
+}
+
+.header-principal .menu-mdr > a {
+  display: block;
+  /*numero magico, pero no encontré forma de hacerlo funcionar bien*/
+}
+
+.header-principal .menu-mdr > a.img-logo {
+  width: 91px;
+}
+
+.header-principal .menu-mdr > a > img {
+  margin-left: auto;
+  display: block;
+  margin-top: 20px;
 }
 
 .header-principal h1 {
@@ -94,7 +117,6 @@ body.color-negativo {
 .header-principal nav ul > * {
   /*cluster pattern*/
   padding-left: 20px;
-  padding-top: 5px;
 }
 
 @media screen and (min-width: 800px) {
@@ -122,6 +144,53 @@ body.color-negativo {
     order: 100;
     text-align: right;
   }
+}
+
+.header-principal.header-home {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.header-principal.header-home .logo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .header-principal.header-home .logo {
+    order: 2;
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+  .header-principal.header-home .logo img {
+    margin-left: auto;
+    display: block;
+  }
+  .header-principal.header-home .lista-artistas {
+    order: 1;
+  }
+  .header-principal.header-home .curaduria {
+    order: 3;
+  }
+  .header-principal.header-home .menu-general-header {
+    order: 4;
+  }
+  .header-principal.header-home .menu-general-header ul {
+    justify-content: flex-end;
+  }
+}
+
+.header-principal.header-home p {
+  margin: 0;
+}
+
+.header-principal.header-home > * {
+  width: 50%;
+  height: 50%;
+}
+
+.header-principal.header-home > * > * {
+  height: 50%;
 }
 
 @media screen and (min-width: 800px) {
@@ -321,6 +390,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 .footer-ficciones-y-obras {
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 1em;
 }
 
 .grilla-bios {
@@ -353,6 +423,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 
 .bio h3 {
   margin: 0;
+  margin-bottom: 10px;
   text-transform: uppercase;
   background-color: #000;
   color: #fff;
@@ -599,8 +670,14 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   background-color: #fff;
   height: 33%;
   font-size: .8em;
-  opacity: 0;
+  opacity: 1;
   transition: .4s;
+}
+
+@media screen and (min-width: 800px) {
+  .l-series-lista .texto {
+    opacity: 0;
+  }
 }
 
 .l-series-lista .texto:hover {
@@ -613,4 +690,121 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 
 .color-negativo .l-series-lista .texto {
   color: black;
+}
+
+.container-volvernos-virtuales {
+  width: 100%;
+  height: 100vh;
+}
+
+.container-volvernos-virtuales iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.tres-columnas {
+  display: flex;
+}
+
+.tres-columnas > * {
+  width: 33%;
+}
+
+.single-element-fullscreen-background {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.single-element-fullscreen-background > * {
+  width: 100%;
+  height: 100%;
+}
+
+.single-element-fullscreen {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.single-element-fullscreen > * {
+  width: 100%;
+  height: 100%;
+}
+
+.frame-imagen-fullsize {
+  width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+}
+
+.frame-imagen-fullsize-nonfullheight {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.grilla-laberinto {
+  width: 200vw;
+  height: 200vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grilla-laberinto > .item-laberinto {
+  width: 25%;
+  height: 33%;
+  margin-bottom: 100px;
+  transform: translateX(348px) translateY(328px);
+}
+
+.zindex1000 {
+  z-index: 1000;
+}
+
+.serif {
+  font-family: serif;
+}
+
+.texto-grande {
+  font-size: 1.5em;
+}
+
+.texto-clarito {
+  color: #555;
+}
+
+.texto-oscuro {
+  color: black;
+}
+
+.medio-ancho-centrado {
+  width: 50%;
+}
+
+ul.slick-dots {
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  list-style: none;
+}
+
+ul.slick-dots > li button {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 50%;
+  font-size: 0;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+
+ul.slick-dots li.slick-active button {
+  background-color: white;
 }

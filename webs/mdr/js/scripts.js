@@ -11,4 +11,19 @@ $(document).ready(function(){
   //BIOS
   $('.bio p').click(function(){$(this).toggleClass('is-active');});
 
+  //Slick Sliders
+  $('.slider').slick({
+    arrows: false,
+    dots: true,
+    vertical: true
+  });
+
+  //Panzoom
+  const element = document.getElementById('panzoom')
+  const panzoom = Panzoom(element, {
+    disableZoom: true,
+  });
+
+
+
 });//Fin documentReady
