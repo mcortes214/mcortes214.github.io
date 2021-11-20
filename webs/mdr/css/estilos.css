@@ -843,7 +843,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   width: 25%;
   height: 33%;
   margin-bottom: 100px;
-  transform: translateX(180px) translateY(327px);
+  transform: translateX(269px) translateY(77px);
 }
 
 .zindex1000 {
@@ -868,6 +868,11 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 
 .medio-ancho-centrado {
   width: 50%;
+}
+
+img.w100h100 {
+  width: 100%;
+  height: 100%;
 }
 
 ul.slick-dots {
