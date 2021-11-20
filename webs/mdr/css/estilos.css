@@ -15,6 +15,10 @@
   text-align: center;
 }
 
+.sin-margenes {
+  margin: 0;
+}
+
 .negrita {
   font-weight: bold;
 }
@@ -80,9 +84,14 @@ body.color-negativo {
 }
 
 .header-principal .menu-mdr > a > img {
-  margin-left: auto;
   display: block;
   margin-top: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .header-principal .menu-mdr > a > img {
+    margin-left: auto;
+  }
 }
 
 .header-principal h1 {
@@ -153,14 +162,23 @@ body.color-negativo {
 
 .header-principal.header-home .logo {
   margin-top: 20px;
-  margin-bottom: 20px;
+}
+
+.header-principal.header-home .curaduria {
+  padding: 0;
+  align-self: flex-start;
+}
+
+.header-principal.header-home .menu-general-header {
+  order: 4;
+  margin-top: 20px;
 }
 
 @media screen and (min-width: 800px) {
   .header-principal.header-home .logo {
     order: 2;
     margin-top: auto;
-    margin-bottom: 0;
+    padding-bottom: 5px;
   }
   .header-principal.header-home .logo img {
     margin-left: auto;
@@ -203,6 +221,16 @@ body.color-negativo {
   .header-principal .nombres-artistas {
     width: 50%;
     font-size: 0.9em;
+  }
+}
+
+.fondo-blanco-header-home {
+  background-color: #fff;
+}
+
+@media screen and (min-width: 800px) {
+  .fondo-blanco-header-home {
+    background-color: transparent;
   }
 }
 
@@ -356,19 +384,26 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 }
 
 .scrambled-text {
-  margin-top: 80vh;
-  font-family: "Cutive Mono";
-  font-size: 0.9em;
-  color: #888;
-  opacity: 0.65;
-  position: fixed;
-  top: 0;
-  left: -5%;
+  /*ESTILOS DE FONDO IMAGEN*/
   width: 100%;
   height: 100vh;
+  background: url("../img/fondo-letras-mobile.png");
+  background-position: center;
+  background-size: cover;
   z-index: -1;
-  text-align: center;
-  letter-spacing: -.25em;
+  position: fixed;
+  top: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .scrambled-text {
+    top: 15vh;
+    background: url("../img/fondo-letras-desktop.png");
+  }
+}
+
+.scrambled-text > * {
+  display: none;
 }
 
 .scrambled-text * {
@@ -383,7 +418,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 
 @media screen and (min-width: 800px) {
   .scrambled-text {
-    margin-top: 42vh;
+    /*ESTILOS DE FONDO IMAGEN*/
   }
 }
 
@@ -447,7 +482,6 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: var(--espacio3);
 }
 
 .separador-caron img {
@@ -507,16 +541,26 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 
 .l-series-glosario li {
   position: absolute;
-  top: calc(30% + var(--dy));
+  top: calc(30% + var(--dy2));
   left: calc(40% + var(--dx));
   font-size: calc(1em * var(--ds));
-  opacity: .8;
+  opacity: .7;
+}
+
+.l-series-glosario li:hover {
+  opacity: 1;
 }
 
 @media (min-width: 800px) {
   .l-series-glosario li {
     font-size: calc(2em * var(--ds));
+    top: calc(30% + var(--dy));
+    left: calc(40% + var(--dx));
   }
+}
+
+.l-series-glosario li.disabled {
+  opacity: 0.25;
 }
 
 .l-series-glosario li a {
@@ -710,6 +754,45 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   width: 33%;
 }
 
+.contenedor-img-cuadrada-cover {
+  outline: 1px solid blue;
+}
+
+.dos-columnas-desktop {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dos-columnas-desktop > * {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .dos-columnas-desktop {
+    flex-wrap: nowrap;
+  }
+  .dos-columnas-desktop > * {
+    width: 50%;
+  }
+}
+
+.texto-coleccion-pandemica {
+  padding: 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.stack-simple > * + * {
+  margin-top: 60px;
+}
+
 .single-element-fullscreen-background {
   width: 100%;
   height: 100vh;
@@ -760,7 +843,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   width: 25%;
   height: 33%;
   margin-bottom: 100px;
-  transform: translateX(348px) translateY(328px);
+  transform: translateX(180px) translateY(327px);
 }
 
 .zindex1000 {

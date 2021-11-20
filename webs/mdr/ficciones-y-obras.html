@@ -9,25 +9,30 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
         <link rel="stylesheet" href="css/estilos.css">
         <title>Ficciones</title>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/mi-propio-typewriter.js"></script>
     </head>
 
-    <body class="l-container">
-        <header class="header-principal header-home"><a class="logo" href="ficciones-y-obras.html"><img class="img-logo" src="img/logo-mdr.svg" /></a>
-            <nav class="menu-general-header">
-                <h2 class="screen-readers">Navegación</h2>
-                <ul>
-                    <li><a class="active" href="ficciones-y-obras.html">Ficciones y Obras</a></li>
-                    <li><a href="creditos-y-artistas.html">Créditos y Artistas</a></li>
-                    <li><a href="texto-y-contexto.html">Texto y Contexto</a></li>
-                </ul>
-            </nav>
-            <p class="lista-artistas">Lilian Margulis | Laura Nucenovich | Marina Btesh | Silvina de las Carreras | Gabriela Esterovich | Miriam Hecht | Gabriela Berutti | Sandra Marinescu | Sara Slipchinsky | Analía Hahn | Rosa Wolkowiski</p>
-            <p class="curaduria negrita">Curaduría: Lucía Kuschnir</p>
-        </header>
+    <body class="">
+        <div class="fondo-blanco-header-home">
+            <div class="l-container">
+                <header class="header-principal header-home"><a class="logo" href="ficciones-y-obras.html"><img class="img-logo" src="img/logo-mdr.svg" /></a>
+                    <nav class="menu-general-header">
+                        <h2 class="screen-readers">Navegación</h2>
+                        <ul>
+                            <li><a class="active" href="ficciones-y-obras.html">Ficciones-Obras</a></li>
+                            <li><a href="creditos-y-artistas.html">Créditos y Artistas</a></li>
+                            <li><a href="texto-y-contexto.html">Texto y Contexto</a></li>
+                        </ul>
+                    </nav>
+                    <p class="lista-artistas">Lilian Margulis | Laura Nucenovich | Marina Btesh | Silvina de las Carreras | Gabriela Esterovich | Miriam Hecht | Gabriela Berutti | Sandra Marinescu | Sara Slipchinsky | Analía Hahn | Rosa Wolkowiski</p>
+                    <p class="curaduria negrita">Curaduría: Lucía Kuschnir</p>
+                </header>
+            </div>
+        </div>
         <div class="scrambled-text">
             <!--Función para generar los offsets:
 for(var i=0; i<42; i++){
@@ -79,14 +84,14 @@ for(var i=0; i<42; i++){
             <p style="--offsetX: 0vw; --offsetY: -30vh">arriesgándonos a ser más que la suma de las partes</p>
             <p style="--offsetX: -24vw; --offsetY: 8vh">Somos marca y registro, pregunta y palabra</p>
         </div>
-        <nav class="seleccion-de-obras">
+        <nav class="seleccion-de-obras l-container">
             <h2 class="screen-readers">Salas</h2>
             <ul class="grilla-base">
                 <li><a href="preguntas-para-despues.html" style="--offsetX: -5vw; --offsetY: 0vh">
                         <h3>Preguntas para después</h3>
                         <ul class="artistas">
                             <li>Marina Btesh</li>
-                            <li>Silvina De Las Carreras</li>
+                            <li>Silvina De&nbsp;Las&nbsp;Carreras</li>
                             <li>Gabriela Esterovich</li>
                         </ul>
                     </a></li>
@@ -140,6 +145,8 @@ for(var i=0; i<42; i++){
         <div class="footer-ficciones-y-obras">
             <p>Ficciones 2020</p>
         </div>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom/dist/panzoom.min.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
     </body>
 
