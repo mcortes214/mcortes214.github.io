@@ -719,7 +719,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
   height: 33%;
   font-size: .8em;
   opacity: 1;
@@ -943,7 +943,6 @@ ul.slick-dots {
 ul.slick-dots > li button {
   background: transparent;
   border: 1px solid white;
-  border-radius: 50%;
   font-size: 0;
   height: 15px;
   width: 15px;
