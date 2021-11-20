@@ -888,6 +888,42 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   display: block;
 }
 
+.grilla-laberinto-18-items {
+  width: 600vw;
+  height: 400vh;
+  margin-left: -250vw;
+  margin-top: -150vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grilla-laberinto-18-items > .item-laberinto {
+  width: 12.5%;
+  height: 34%;
+}
+
+.grilla-laberinto-18-items img {
+  display: block;
+}
+
+.grilla-laberinto-48-items {
+  width: 800vw;
+  height: 800vh;
+  margin-left: -250vw;
+  margin-top: -150vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grilla-laberinto-48-items > .item-laberinto {
+  width: 12.5%;
+  height: 17%;
+}
+
+.grilla-laberinto-48-items img {
+  display: block;
+}
+
 .full-width-auto-height-background {
   position: absolute;
   width: 100%;
