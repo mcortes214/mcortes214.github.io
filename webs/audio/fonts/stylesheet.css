@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'LOVES';
+    src: url('LOVES-REG.woff2') format('woff2'),
+        url('LOVES-REG.woff') format('woff'),
+        url('LOVES-REG.ttf') format('truetype'),
+        url('LOVES-REG.svg#LOVES-REG') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
