@@ -6,7 +6,10 @@ VERSIÓN 1.3
 Archivo de reproductor, recuperado desde un iframe en el plugin de Sound Window.
 Contiene visuales con manchas oscuras y color dentro de una gama específica.
 Esta versión (V1.3) fue introducida en noviembre de 2021.
-Versión inicial, con nuevas tipografías, sin cambios en la funcionalidad.
+
+CHANGELOG:
+- Nuevas tipografías
+- Cambio en el texto de info, inclusión de logos
 
 Además, agregué este índice (buscar el keyword con los %% para ir a la sección).
 Útil para navegar entre librerías y código relevante
@@ -15392,6 +15395,22 @@ button.cerrar-informacion svg {
     height: 30px;
 }
 
+.flex-items-centrados {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-items-centrados > * {
+    background: transparent;
+    width: 33%;
+    height: 100%;
+}
+.flex-items-centrados > * + * {
+  margin-left: 5%;
+}
+
+
   html {
       font-family: 'Nunito Sans', sans-serif;
   }
@@ -16379,19 +16398,22 @@ button.cerrar-informacion svg {
   </button>
   <div class="caja-informacion">
     <h2>About this project</h2>
-    <p><strong>Sound window</strong> is an interactive -  visual reactive sound piece hosted on a web page, the frequencies of an electroacoustic composition are interpreted into a real-time cinematic landscape.</p>
-    <p>Created during the lockdown the piece is inspired from Erik Satie´s «furniture music» concept, the audiovisual device helps to design our own soundscape indoors as a way to connect throughout sound with the outside world, to design our own soundscape indoors, inviting us to relax, becoming functional to indoors activities, such as reading, writing, computer work, yoga, etc.</p>
-    <p>Combining sounds and musical textures generated with instruments and electronics, the different layers of sound, faint and delicate, can be managed through a virtual mixer allowing users to carry out their own sonic combinations and compositions, creating their own soundscapes, having audio manipulation tools  (delays, reverbs) users can intervene the musical sound palette.</p>
+    <p><strong>Sound window</strong> is an interactive - visual reactive sound piece hosted on a web page, the frequencies of an electroacoustic composition are interpreted into a real-time cinematic landscape.</p>
+    <p>Created during the lockdown the piece is inspired from Erik Satie´s «furniture music» concept, the audiovisual device helps to design our own soundscape indoors, as a way to connect throughout sound with the outside world, inviting us to relax, becoming functional to home activities, such as reading, writing, computer work, yoga, etc.</p>
+    <p>Combining sounds and musical textures generated with instruments and electronics, the different layers of sound, faint and delicate, can be managed through a virtual mixer allowing users to carry out their own sonic combinations and compositions, creating their own soundscapes, having audio manipulation tools (delays, reverbs) users can intervene the musical sound palette.</p>
     <h3>How to use:</h3>
     <ol>
       <li>Wait until the player is loaded</li>
-      <li>Choose the song and hit the play button to start the track</li>
       <li>Choose the song and hit the play button to start the track</li>
       <li>Construct and deconstruct the music, create the soundscape which is more suitable for your space, move the faders to create your own mix, adding or removing sound layers (feel free to play everything, it won´t break).</li>
       <li>Experiment with the sound effects, add Delay Time - Delay Feedback and Reverb as much as you want!</li>
       <li>Enjoy.</li>
     </ol>
     <p><em>This project was possible thanks to the support of Asylum Arts and Chateau Ephemere.</em></p>
+    <div class="flex-items-centrados">
+      <img src="https://www.maxicortes.com.ar/webs/audio/img/asylum-arts-logo-color.png" alt="Asylum Arts"/>
+      <img src="https://www.maxicortes.com.ar/webs/audio/img/chateau-ephemere-logo.jpeg" alt="Chateau Ephemere"/>
+    </div>
   </div>
 </div>
 
@@ -17533,8 +17555,8 @@ $(document).ready(function(){
 // document.ready.
 
 function main(e) {
-  receiveMessage(e).then(generarDOM).then(descargarAudios); //CON DESCARGA
-  // receiveMessage(e).then(generarDOM).then(postAudioLoad); //TESTEO PLAYBACK
+  // receiveMessage(e).then(generarDOM).then(descargarAudios); //CON DESCARGA
+  receiveMessage(e).then(generarDOM).then(postAudioLoad); //TESTEO PLAYBACK
 }
 
 
