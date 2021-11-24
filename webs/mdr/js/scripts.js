@@ -15,8 +15,12 @@ $(document).ready(function(){
   $('.slider').slick({
     arrows: false,
     dots: true,
-    vertical: true
+    vertical: true,
+    verticalSwiping: true,
   });
+
+  //Galerías featherlight
+  $('.galeria-featherlight').featherlightGallery();
 
   //Panzoom
   const element = document.getElementById('panzoom')
