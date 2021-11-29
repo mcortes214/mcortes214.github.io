@@ -75,6 +75,8 @@ VISUALES
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Quicksand:wght@300;500&family=Roboto:wght@100;400&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.js"></script> -->
 
@@ -15451,6 +15453,19 @@ button.cerrar-informacion svg {
 
   /* %% - Reproductor */
 
+  /*Tooltips*/
+
+  .tippy-box {
+    background-color: black;
+    outline: 1px solid white;
+    border-radius: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8em;
+  }
+  .tippy-arrow{
+    display: none;
+  }
+
   div#reproductor {
       width: 50%;
       color: white;
@@ -16475,6 +16490,10 @@ button.cerrar-informacion svg {
   <div id="canciones"></div>                <!-- Contenido dinámico -->
   <div id="controles-globales">
 
+  <div class="contenedor-tooltips">
+    <div class="tooltip" id="tooltip-prev">Previous song</div>
+  </div>
+
 <div class="contenedor-paneles-controles">
   <div class="panel-controles">
         <div class="contenedor-on-off">
@@ -16715,6 +16734,7 @@ function generarDOM() {
        for (var j = 0; j < tracksEnEstaCancion; j++) {
          // - Generar un channel strip ("#canal")
          generarCanalIndividual(elementoCanalesEstaCancion, i, j);
+
        }
 
        //E inicializar todos los sliders
@@ -17024,6 +17044,20 @@ function moverControl(input) {
 
 //Mapear interfaces: event listeners para todos los botones
 function mapearInterfaces() {
+
+  //Tooltips
+  tippy(botonPrev, {content: 'Previous song',});
+  tippy(botonNext, {content: 'Next song',});
+  tippy(botonFwd, {content: 'Fast forward',});
+  tippy(botonRwd, {content: 'Rewind',});
+  tippy(botonPlayPause, {content: 'Play/Pause',});
+  tippy(botonDetener, {content: 'Stop',});
+
+  tippy('.boton-mute-canal', {content: 'Mute'});
+  tippy('.rangeslider.rangeslider--vertical', {content: 'Track volume'});
+  tippy('.seek .rangeslider__handle', {content: 'Seek bar'});
+  tippy('.efecto-on-off', {content: 'Enable/disable FX'});
+  tippy('.panel-controles .rangeslider--horizontal', {content: 'FX Amount'});
 
   //Selectores de canción
 
@@ -17556,8 +17590,8 @@ $(document).ready(function(){
 // document.ready.
 
 function main(e) {
-  receiveMessage(e).then(generarDOM).then(descargarAudios); //CON DESCARGA
-  // receiveMessage(e).then(generarDOM).then(postAudioLoad); //TESTEO PLAYBACK
+  // receiveMessage(e).then(generarDOM).then(descargarAudios); //CON DESCARGA
+  receiveMessage(e).then(generarDOM).then(postAudioLoad); //TESTEO PLAYBACK
 }
 
 
