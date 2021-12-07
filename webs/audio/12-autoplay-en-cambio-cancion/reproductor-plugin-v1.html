@@ -2,12 +2,13 @@
 <html lang="en">
 
 <!--
-VERSIÓN 1.3.2
+VERSIÓN 1.3.3
 Archivo de reproductor, recuperado desde un iframe en el plugin de Sound Window.
 Contiene visuales con manchas oscuras y color dentro de una gama específica.
 
 CHANGELOG:
-- Nombres de instrumento agregados a cada track
+- Autoplay al cambiar canción
+- Resetear efectos al cambiar de canción
 
 
   ........... ÍNDICE ...........
@@ -17081,28 +17082,14 @@ function mapearInterfaces() {
   //Selectores de canción
 
   $(document).on('click', '.boton-cancion', function () {
-    //Detener reproducción
-    detener(cancionActiva);
-    //Reconocer canción clickeada
     var dataCancion = $(this).attr('data-cancion');
-    var selectorSeccionCancion = '.cancion[data-cancion="'+ dataCancion +'"]';
-    var cancionSeleccionada = $(selectorSeccionCancion);
-    //Cambiar clases
-    $('.boton-cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
-    $(this).addClass('activo'); //agregarla a la canción seleccionada
-    $('.cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
-    cancionSeleccionada.addClass('activo'); //agregarla a la canción seleccionada
-    cancionActiva = dataCancion;
-    console.log(cancionActiva);
-    //Modificar routeo de nodos (master)
-    nodes[cancionActiva].bus.connect(nodes.masterGain);
+    cambiarACancion(dataCancion);
   });
 
   //Canción previa
 
   $(botonPrev).on('click', function () {
-    //Detener reproducción
-    detener(cancionActiva);
+
     //Reconocer canción previa
     var dataCancion;
     if (cancionActiva!=0) { //si no es la primera
@@ -17113,47 +17100,26 @@ function mapearInterfaces() {
       dataCancion = 0;  //mantenerlo en 0
       console.log('era primera cancion');
     }
-    var selectorSeccionCancion = '.cancion[data-cancion="'+ dataCancion +'"]';
-    var cancionSeleccionada = $(selectorSeccionCancion);
-    //Cambiar clases
-    $('.boton-cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
-    $('.boton-cancion[data-cancion="'+ dataCancion +'"]').addClass('activo'); //agregarla a la canción seleccionada
 
-    $('.cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
-    cancionSeleccionada.addClass('activo'); //agregarla a la canción seleccionada
-    cancionActiva = dataCancion;
-    console.log(cancionActiva);
-    //Modificar routeo de nodos (master)
-    nodes[cancionActiva].bus.connect(nodes.masterGain);
+    cambiarACancion(dataCancion);
   });
 
   //Canción siguiente
 
   $(botonNext).on('click', function () {
-    //Detener reproducción
-    detener(cancionActiva);
-    //Reconocer canción previa
+    //Reconocer canción siguiente
     var dataCancion;
     if (cancionActiva!=cantidadDeCanciones-1) { //si no es la última
       dataCancion = cancionActiva + 1;
       console.log('cancion siguiente');
     }
-    else{  //si es la primera (igual a 0)
+    else{  //si es la última
       dataCancion = cantidadDeCanciones-1;  //mantenerlo en su valor actual
       console.log('era última cancion');
     }
-    var selectorSeccionCancion = '.cancion[data-cancion="'+ dataCancion +'"]';
-    var cancionSeleccionada = $(selectorSeccionCancion);
-    //Cambiar clases
-    $('.boton-cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
-    $('.boton-cancion[data-cancion="'+ dataCancion +'"]').addClass('activo'); //agregarla a la canción seleccionada
 
-    $('.cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
-    cancionSeleccionada.addClass('activo'); //agregarla a la canción seleccionada
-    cancionActiva = dataCancion;
-    console.log(cancionActiva);
-    //Modificar routeo de nodos (master)
-    nodes[cancionActiva].bus.connect(nodes.masterGain);
+    cambiarACancion(dataCancion);
+
   });
 
   //Rewind
@@ -17358,6 +17324,47 @@ var intervaloTestMetadata;
 
 
 //Funciones de reproducción de audio (controlan al seek)
+
+function cambiarACancion(dataCancion){
+  //Detener reproducción
+  detener(cancionActiva);
+  //Identificar sección de canción
+  var selectorSeccionCancion = '.cancion[data-cancion="'+ dataCancion +'"]';
+  var cancionSeleccionada = $(selectorSeccionCancion);
+  //Cambiar clases
+  $('.boton-cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
+  $('.boton-cancion[data-cancion="'+ dataCancion +'"]').addClass('activo'); //agregarla a la canción seleccionada
+  $('.cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
+  cancionSeleccionada.addClass('activo'); //agregarla a la canción seleccionada
+  cancionActiva = dataCancion;
+  console.log(cancionActiva);
+  //Modificar routeo de nodos (master)
+  nodes[cancionActiva].bus.connect(nodes.masterGain);
+
+  //Resetear todos los FX (a manopla esta vez, no tengo 2-way data binding):
+
+    //Delay time
+    $(document.getElementById('delay-time')).val(0).change();  //Interfaz
+    nodes.delay.delayTime.value = 0;      //Valor
+    //Delay time
+    $(document.getElementById('delay-feedback')).val(0).change();
+    nodes.delayFeedback.value = 0;
+    //Reverb
+    $(document.getElementById('reverb-wet')).val(0).change();
+    nodes.reverbGain.gain.value = 0;
+
+    //Delay on/off
+    $('#delay-on-off').removeClass('activo');
+    nodes.delay.disconnect();
+    //Reverb on/off
+    $('#reverb-on-off').removeClass('activo');
+    nodes.reverbGain.disconnect();
+
+
+    //
+  $('#play-pause-button').addClass('reproduciendo');
+  reproducir(cancionActiva);
+}
 
 function reproducir(cancion){
   if (audioCtx.state === 'suspended') {
