@@ -459,6 +459,7 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 }
 
 .bio img {
+  width: 100%;
   padding-bottom: 20px;
   object-fit: contain;
   object-position: top;
@@ -746,12 +747,48 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 
 .container-volvernos-virtuales {
   width: 100%;
-  height: 100vh;
+  height: 268vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 2.25fr;
+  gap: 0px 0px;
+  grid-template-areas: "video1" "video2" "video3" "video4";
 }
 
-.container-volvernos-virtuales iframe {
+@media screen and (min-width: 800px) {
+  .container-volvernos-virtuales {
+    height: 84.375vw;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "video1 video4" "video2 video4" "video3 video4";
+  }
+}
+
+.contenedor-video-yt {
+  overflow: hidden;
+  position: relative;
+}
+
+.contenedor-video-yt > iframe {
   width: 100%;
-  height: 100%;
+  height: 400%;
+  transform: translateY(-37.5%);
+}
+
+.video1 {
+  grid-area: video1;
+}
+
+.video2 {
+  grid-area: video2;
+}
+
+.video3 {
+  grid-area: video3;
+}
+
+.video4 {
+  grid-area: video4;
 }
 
 .tres-columnas {
