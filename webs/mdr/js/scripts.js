@@ -12,8 +12,10 @@ $(document).ready(function(){
   $('.bio p').click(function(){$(this).toggleClass('is-active');});
 
   //Slick Sliders
-  $('.slider').slick({
-    arrows: false,
+  $('.miriam-slider').slick({
+    arrows: true,
+    prevArrow: $('.miriam-slider-arrows .prev-arrow'),
+    nextArrow: $('.miriam-slider-arrows .next-arrow'),
     dots: true,
     vertical: true,
     verticalSwiping: true,
@@ -21,6 +23,15 @@ $(document).ready(function(){
 
   //Galerías featherlight
   $('.galeria-featherlight').featherlightGallery();
+
+  //Bindear el abrir la galería a los elementos con clase gallery handle
+  $('.js-open-gallery-button').click( function() {
+    const galleryId = $(this).data('galeria');
+    if(galleryId){
+      const selector = `#${galleryId} a:first`;
+      $(selector).click();
+    }
+  });
 
   //Panzoom
   const element = document.getElementById('panzoom')

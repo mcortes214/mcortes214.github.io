@@ -10,10 +10,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
         <link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+        <link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
         <link rel="stylesheet" href="css/estilos.css">
         <title>Colección pandémica | Sara Slipchinsky</title>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/detect_swipe/2.1.1/jquery.detect_swipe.min.js"></script>
         <script type="text/javascript" src="js/mi-propio-typewriter.js"></script>
     </head>
 
@@ -28,25 +30,33 @@
                 </div>
             </div>
         </header>
-        <div class="dos-columnas-desktop"><img class="gif-coleccion-pandemica" src="img/series/SERIE1_Angustia01.jpg" data-url-gif="img/series/coleccion-sara-serie-1.gif" />
+        <div class="hidden" id="galeriaAngustia" data-featherlight-gallery="data-featherlight-gallery" data-featherlight-filter="a"><a href="img/series/SERIE1_Angustia01.jpg"></a><a href="img/series/SERIE1_Angustia02.jpg"></a><a href="img/series/SERIE1_Angustia03.jpg"></a><a href="img/series/SERIE1_Angustia04.jpg"></a></div>
+        <div class="dos-columnas-desktop">
+            <div class="js-open-gallery-button" data-galeria="galeriaAngustia"><img class="gif-coleccion-pandemica" src="img/series/SERIE1_Angustia01.jpg" data-url-gif="img/series/coleccion-sara-serie-1.gif" /></div>
             <div class="texto-coleccion-pandemica">
                 <h3>Angustia</h3>
                 <p>Fantasma que sobrevuela lo siniestro. Perturba hasta lo insoportable.</p>
             </div>
         </div>
-        <div class="dos-columnas-desktop"><img class="gif-coleccion-pandemica" src="img/series/SERIE2_Corazon00.jpg" data-url-gif="img/series/coleccion-sara-serie-2.gif" />
+        <div class="hidden" id="galeriaCorazonInquieto" data-featherlight-gallery="data-featherlight-gallery" data-featherlight-filter="a"><a href="img/series/SERIE2_Corazon00.jpg"></a><a href="img/series/SERIE2_Corazon01.jpg"></a><a href="img/series/SERIE2_Corazon02.jpg"></a><a href="img/series/SERIE2_Corazon03.jpg"></a><a href="img/series/SERIE2_Corazon04.jpg"></a><a href="img/series/SERIE2_Corazon05.jpg"></a><a href="img/series/SERIE2_Corazon06.jpg"></a></div>
+        <div class="dos-columnas-desktop">
+            <div class="js-open-gallery-button" data-galeria="galeriaCorazonInquieto"><img class="gif-coleccion-pandemica" src="img/series/SERIE2_Corazon00.jpg" data-url-gif="img/series/coleccion-sara-serie-2.gif" /></div>
             <div class="texto-coleccion-pandemica">
                 <h3>Corazón inquieto</h3>
                 <p>Palpita al ritmo de las emociones.A veces se escapa del cuerpo.</p>
             </div>
         </div>
-        <div class="dos-columnas-desktop"><img class="gif-coleccion-pandemica" src="img/series/SERIE3_Enclaustrada01.jpg" data-url-gif="img/series/coleccion-sara-serie-3.gif" />
+        <div class="hidden" id="galeriaEnclaustrada" data-featherlight-gallery="data-featherlight-gallery" data-featherlight-filter="a"><a href="img/series/SERIE3_Enclaustrada01.jpg"></a><a href="img/series/SERIE3_Enclaustrada03.jpg"></a><a href="img/series/SERIE3_Enclaustrada04.jpg"></a><a href="img/series/SERIE3_Enclaustrada05.jpg"></a></div>
+        <div class="dos-columnas-desktop">
+            <div class="js-open-gallery-button" data-galeria="galeriaEnclaustrada"><img class="gif-coleccion-pandemica" src="img/series/SERIE3_Enclaustrada01.jpg" data-url-gif="img/series/coleccion-sara-serie-3.gif" /></div>
             <div class="texto-coleccion-pandemica">
                 <h3>Enclaustrada</h3>
                 <p>Efecto cuarentena. El espacio físico es un claustro. El autoencierro como coraza.</p>
             </div>
         </div>
-        <div class="dos-columnas-desktop"><img class="gif-coleccion-pandemica" src="img/series/SERIE4_Tripas01.jpg" data-url-gif="img/series/coleccion-sara-serie-4.gif" />
+        <div class="hidden" id="galeriaTripas" data-featherlight-gallery="data-featherlight-gallery" data-featherlight-filter="a"><a href="img/series/SERIE4_Tripas01.jpg"></a><a href="img/series/SERIE4_Tripas02.jpg"></a><a href="img/series/SERIE4_Tripas03.jpg"></a><a href="img/series/SERIE4_Tripas04.jpg"></a><a href="img/series/SERIE4_Tripas05.jpg"></a></div>
+        <div class="dos-columnas-desktop">
+            <div class="js-open-gallery-button" data-galeria="galeriaTripas"><img class="gif-coleccion-pandemica" src="img/series/SERIE4_Tripas01.jpg" data-url-gif="img/series/coleccion-sara-serie-4.gif" /></div>
             <div class="texto-coleccion-pandemica">
                 <h3>Desde las tripas</h3>
                 <p>Hipersensibilidad. Las viseras se apoderan del pensamiento.</p>
@@ -59,7 +69,9 @@
                 <p>Expresión de la impotencia.</p>
             </div>
         </div>
-        <div class="dos-columnas-desktop"><img class="gif-coleccion-pandemica" src="img/series/SERIE6_Ansiolitico01.jpg" data-url-gif="img/series/coleccion-sara-serie-6.gif" />
+        <div class="hidden" id="galeriaAnsiolitico" data-featherlight-gallery="data-featherlight-gallery" data-featherlight-filter="a"><a href="img/series/SERIE6_Ansiolitico01.jpg"></a><a href="img/series/SERIE6_Ansiolitico02.jpg"></a><a href="img/series/SERIE6_Ansiolitico03.jpg"></a><a href="img/series/SERIE6_Ansiolitico04.jpg"></a><a href="img/series/SERIE6_Ansiolitico05.jpg"></a></div>
+        <div class="dos-columnas-desktop">
+            <div class="js-open-gallery-button" data-galeria="galeriaAnsiolitico"><img class="gif-coleccion-pandemica" src="img/series/SERIE6_Ansiolitico01.jpg" data-url-gif="img/series/coleccion-sara-serie-6.gif" /></div>
             <div class="texto-coleccion-pandemica">
                 <h3>Ansiolítico</h3>
                 <p>Calmante para la ansiedad. Endulza los momentos de inquietud. Efectos adversos: ensancha las caderas.</p>
@@ -78,6 +90,7 @@
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom/dist/panzoom.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
     </body>
 

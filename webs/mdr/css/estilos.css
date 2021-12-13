@@ -497,6 +497,11 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   width: 30px;
 }
 
+.espaciador {
+  width: 100%;
+  height: 100px;
+}
+
 .l-container {
   width: 90vw;
   margin-left: auto;
@@ -535,20 +540,32 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   margin-top: 20px;
 }
 
+@media screen and (min-width: 800px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
 /*CREADAS EN UN SANDBOX. Se van a integrar después al resto del código*/
-.l-series-glosario {
+.l-series-glosario:not(.disabled) {
   font-family: serif;
   color: #000;
   font-size: 1.2em;
 }
 
-.l-series-glosario ul {
+.l-series-glosario:not(.disabled) ul {
   min-height: 70vh;
   list-style: none;
   position: relative;
 }
 
-.l-series-glosario li {
+.l-series-glosario:not(.disabled) li {
   position: absolute;
   top: calc(30% + var(--dy2));
   left: calc(40% + var(--dx));
@@ -556,23 +573,29 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   opacity: .7;
 }
 
-.l-series-glosario li:hover {
+.l-series-glosario:not(.disabled) li:hover {
   opacity: 1;
+  background-color: #000;
+}
+
+.l-series-glosario:not(.disabled) li:hover a {
+  color: #fff;
 }
 
 @media (min-width: 800px) {
-  .l-series-glosario li {
+  .l-series-glosario:not(.disabled) li {
     font-size: calc(2em * var(--ds));
     top: calc(30% + var(--dy));
     left: calc(40% + var(--dx));
   }
 }
 
-.l-series-glosario li.disabled {
+.l-series-glosario:not(.disabled) li.disabled {
   opacity: 0.25;
+  background-color: transparent;
 }
 
-.l-series-glosario li a {
+.l-series-glosario:not(.disabled) li a {
   text-decoration: none;
 }
 
@@ -586,6 +609,14 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 
 .l-series-100vh img {
   height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .l-series-invencion {
@@ -847,9 +878,13 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   }
 }
 
+.gif-coleccion-pandemica {
+  width: 100%;
+  cursor: pointer;
+}
+
 .texto-coleccion-pandemica {
   padding: 40px;
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -910,62 +945,48 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
 
 .frame-imagen-completa-laberinto {
   width: 100vw;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .grilla-laberinto {
-  width: 400vw;
-  height: 400vh;
-  margin-left: -150vw;
-  margin-top: -150vh;
   display: flex;
   flex-wrap: wrap;
-}
-
-.grilla-laberinto > .item-laberinto {
-  width: 25%;
-  height: 34%;
+  flex-direction: column;
 }
 
 .grilla-laberinto img {
   display: block;
 }
 
-.grilla-laberinto-18-items {
-  width: 600vw;
-  height: 400vh;
-  margin-left: -250vw;
-  margin-top: -150vh;
+.gl-h-200vw {
+  height: 200vw;
+}
+
+.gl-h-300vw {
+  height: 300vw;
+}
+
+.gl-h-400vw {
+  height: 400vw;
+}
+
+.block {
+  display: block;
+}
+
+.tres-columnas-wrap {
   display: flex;
   flex-wrap: wrap;
 }
 
-.grilla-laberinto-18-items > .item-laberinto {
-  width: 12.5%;
-  height: 34%;
+.tres-columnas-wrap > * {
+  width: 33%;
 }
 
-.grilla-laberinto-18-items img {
-  display: block;
-}
-
-.grilla-laberinto-48-items {
-  width: 800vw;
-  height: 800vh;
-  margin-left: -250vw;
-  margin-top: -150vh;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.grilla-laberinto-48-items > .item-laberinto {
-  width: 12.5%;
-  height: 17%;
-}
-
-.grilla-laberinto-48-items img {
-  display: block;
+.tres-columnas-wrap > * > img {
+  width: 100%;
+  height: auto;
 }
 
 .full-width-auto-height-background {
@@ -1007,6 +1028,19 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   width: 66%;
 }
 
+.no-decoration {
+  text-decoration: none;
+}
+
+.hover-resaltado-invertido:hover {
+  background-color: #fff;
+  color: #000 !important;
+}
+
+.pad-small {
+  padding: 5px;
+}
+
 img.w100h100 {
   width: 100%;
   height: 100%;
@@ -1026,6 +1060,59 @@ img.w100h100 {
   z-index: 10;
 }
 
+.hidden {
+  display: none;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.contenedor-posicion-absoluta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contenedor-posicion-absoluta > * {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+}
+
+.box-overlay {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-transparent-black {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.six-columns {
+  columns: 6;
+}
+
+.no-list-style {
+  list-style: none;
+}
+
 .slick-vertical .slick-slide {
   border: 0;
 }
@@ -1034,6 +1121,7 @@ ul.slick-dots {
   z-index: 100;
   position: absolute;
   bottom: 30px;
+  max-height: 60vh;
   left: 5vw;
   padding: 0;
   list-style: none;
@@ -1047,6 +1135,7 @@ ul.slick-dots > li button {
   height: 10px;
   width: 10px;
   margin-top: 8px;
+  margin-right: 8px;
   padding: 0;
   font-size: 0;
   background: transparent;
@@ -1064,4 +1153,49 @@ ul.slick-dots li.slick-active button {
     bottom: 50%;
     transform: translateY(50%);
   }
+}
+
+.miriam-slider-arrows .arrow {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 2vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.miriam-slider-arrows .arrow.prev-arrow {
+  top: 40vh;
+  background-image: url("../img/flecha-arriba.svg");
+}
+
+.miriam-slider-arrows .arrow.next-arrow {
+  bottom: 40vh;
+  background-image: url("../img/flecha-abajo.svg");
+}
+
+.featherlight .featherlight-content {
+  padding: 0;
+  border: 0;
+}
+
+.featherlight-previous {
+  left: 0;
+  top: 0;
+}
+
+.featherlight-previous span {
+  text-shadow: none;
+}
+
+.featherlight-next {
+  right: 0;
+  top: 0;
+}
+
+.featherlight-next span {
+  text-shadow: none;
 }
