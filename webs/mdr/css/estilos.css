@@ -540,16 +540,21 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   margin-top: 20px;
 }
 
-@media screen and (min-width: 800px) {
-  .mobile-only {
-    display: none;
-  }
+.img-w-100 {
+  width: 100%;
 }
 
-@media screen and (max-width: 800px) {
-  .desktop-only {
-    display: none;
-  }
+.img-block {
+  width: 100%;
+  height: 100%;
+}
+
+.img-contain {
+  object-fit: contain;
+}
+
+.img-cover {
+  object-fit: cover;
 }
 
 /*CREADAS EN UN SANDBOX. Se van a integrar después al resto del código*/
@@ -984,6 +989,12 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   width: 33%;
 }
 
+@media screen and (max-width: 800px) {
+  .tres-columnas-wrap > * {
+    width: 100%;
+  }
+}
+
 .tres-columnas-wrap > * > img {
   width: 100%;
   height: auto;
@@ -1095,6 +1106,16 @@ img.w100h100 {
   z-index: 100;
 }
 
+.overlay-small {
+  position: absolute;
+  z-index: 100;
+}
+
+.abs-left-bottom {
+  left: 0;
+  bottom: 0;
+}
+
 .center-content {
   display: flex;
   align-items: center;
@@ -1103,6 +1124,10 @@ img.w100h100 {
 
 .bg-transparent-black {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.bg-white {
+  background-color: #fff;
 }
 
 .six-columns {
@@ -1198,4 +1223,24 @@ ul.slick-dots li.slick-active button {
 
 .featherlight-next span {
   text-shadow: none;
+}
+
+@media screen and (min-width: 800px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.bold {
+  font-weight: bold;
 }
