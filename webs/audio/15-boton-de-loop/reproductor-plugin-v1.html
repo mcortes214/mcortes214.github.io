@@ -2,13 +2,12 @@
 <html lang="en">
 
 <!--
-VERSIÓN 1.3.5
+VERSIÓN 1.3.6
 Archivo de reproductor, recuperado desde un iframe en el plugin de Sound Window.
 Contiene visuales con manchas oscuras y color dentro de una gama específica.
 
 CHANGELOG:
-- Botón de fullscreen con ícono (en proceso)
-- Implementación de botón de loop (en proceso)
+- Corregir funcionamiento de loop; botón de loop
 
   ........... ÍNDICE ...........
 
@@ -15801,6 +15800,11 @@ button.cerrar-informacion svg {
       background-size: contain;
   }
 
+.separador-iconos-playback {
+  width: 10px;
+  height: 20px;
+}
+
   #play-pause-button{
     background-image: url('https://www.maxicortes.com.ar/webs/audio/img/boton-play.png');
   }
@@ -15818,11 +15822,19 @@ button.cerrar-informacion svg {
   }
   #rwd-button{
     background-image: url('https://www.maxicortes.com.ar/webs/audio/img/boton-rwd.png');
-    width: 40px;
+    width: 30px;
   }
   #fwd-button{
     background-image: url('https://www.maxicortes.com.ar/webs/audio/img/boton-fwd.png');
-    width: 40px;
+    width: 30px;
+  }
+  #loop-button{
+    background-image: url('https://www.maxicortes.com.ar/webs/audio/img/boton-loop.png');
+    width: 30px;
+    opacity: 0.5;
+  }
+  #loop-button.enabled{
+    opacity: 1;
   }
 
 
@@ -16504,9 +16516,10 @@ button.cerrar-informacion svg {
   <div id="canciones"></div>                <!-- Contenido dinámico -->
   <div id="controles-globales">
 
-  <div class="contenedor-tooltips">
+  <!-- Este contenedor de tooltips sigue siendo relevante? -->
+  <!-- <div class="contenedor-tooltips">
     <div class="tooltip" id="tooltip-prev">Previous song</div>
-  </div>
+  </div> -->
 
 <div class="contenedor-paneles-controles">
   <div class="panel-controles">
@@ -16539,12 +16552,14 @@ button.cerrar-informacion svg {
 
     <!-- Playback -->
     <div class="seccion-playback">
-      <button class="playback-control" id="prev-button">PREV</button>
-      <button class="playback-control" id="rwd-button">RWD</button>
+      <button class="playback-control" id="prev-button">Previous Song</button>
+      <button class="playback-control" id="rwd-button">Rewind</button>
       <button class="playback-control" id="play-pause-button">Play/pause</button>
       <button class="playback-control" id="stop-button">Stop</button>
-      <button class="playback-control" id="fwd-button">FWD</button>
-      <button class="playback-control" id="next-button">NEXT</button>
+      <button class="playback-control" id="fwd-button">Forward</button>
+      <button class="playback-control" id="next-button">Next song</button>
+      <div class="separador-iconos-playback"></div>
+      <button class="playback-control" id="loop-button">Loop</button>
     </div>
 
 
@@ -16739,6 +16754,13 @@ var esPrimeraCancion = true;
 // Funciones
 
 function generarDOM() {
+
+  // Precargar imágenes dinámicas con variables descartables.
+  var preloadedPauseIcon = new Image();
+  preloadedPauseIcon.src="https://maxicortes.com.ar/webs/audio/img/boton-pause.png";
+  var preloadedSmallScreenIcon = new Image();
+  preloadedPauseIcon.src="https://maxicortes.com.ar/webs/audio/img/icono-small-screen.svg";
+
   console.log('generarDOM ejecutándose');
    return new Promise(function(resolve, reject){
 
@@ -17044,6 +17066,7 @@ const botonPrev = document.getElementById('prev-button');
 const botonNext = document.getElementById('next-button');
 const botonRwd = document.getElementById('rwd-button');
 const botonFwd = document.getElementById('fwd-button');
+const botonLoop = document.getElementById('loop-button');
 
 var cancionActiva = 0;
 
@@ -17106,6 +17129,7 @@ function mapearInterfaces() {
   tippy(botonRwd, {content: 'Rewind',});
   tippy(botonPlayPause, {content: 'Play/Pause',});
   tippy(botonDetener, {content: 'Stop',});
+  tippy(botonLoop, {content: 'Enable/disable loop',});
 
   tippy('.boton-mute-canal', {content: 'Mute'});
   tippy('.rangeslider.rangeslider--vertical', {content: 'Track volume'});
@@ -17205,6 +17229,18 @@ function mapearInterfaces() {
       detener(cancionActiva);
   });
 
+
+  //Loop
+
+  $(botonLoop).on('click', function () {
+    $(this).toggleClass('enabled');
+    if($(this).hasClass('enabled')){
+      isLoopEnabled = true;
+    }
+    else{
+      isLoopEnabled = false;
+    }
+  });
 
   //Mute
   $('.boton-mute-canal').on('click', function () {
@@ -17355,6 +17391,7 @@ function routearAudioNodes() {
 
 var intervaloSeek;
 var intervaloTestMetadata;
+let isLoopEnabled = true;
 
 
 //Funciones de reproducción de audio (controlan al seek)
@@ -17466,8 +17503,10 @@ function saltarA(cancion, segundos){
 
 //------
 
+
 function reproducirSeek(cancion){
   var primerAudioEnEstaCancion = document.getElementById('audio-cancion-'+cancion+'-track-0');
+  var duracionTotalDeEstaCancion = songInfo[cancion].songDuration;
   var tiempoTranscurrido;
   intervaloSeek = setInterval(function(){
     // Obtener currentTime del primer audio de la canción
@@ -17476,13 +17515,15 @@ function reproducirSeek(cancion){
     actualizarVisorSeek(cancion);
     console.log('Transcurrido: '+tiempoTranscurrido);
     console.log('Total: '+duracionTotalDeEstaCancion);
+
+    //Loop
+    if(isLoopEnabled){
+      if(tiempoTranscurrido >= duracionTotalDeEstaCancion-1){
+        console.log('LOOPEANDO');
+        saltarA(cancionActiva, 0);
+      }
+    }
   },100);
-
-
-  //Loop
-  if(tiempoTranscurrido >= duracionTotalDeEstaCancion-1){
-    saltarA(cancionActiva, 0);
-  }
 
 }
 
@@ -17522,10 +17563,9 @@ function inicializarSeeks() {
 }
 
 //------
-var duracionTotalDeEstaCancion;
 
 function cambiarValoresMaximosSeek(aud, indice){
-  duracionTotalDeEstaCancion = aud.duration;
+  songInfo[indice].songDuration = aud.duration;
   //Actualizar valor máximo de los input
   var objetoInput = $('#slider-seek-control-cancion-'+indice);
   var objetoMarcador = $('#slider-seek-view-cancion-'+indice);
@@ -17731,12 +17771,21 @@ window.addEventListener("message", main, false);
   bottom: 0;
   left: 0;
   z-index: 110;
-  border: 1px solid white;
   color: white;
-  padding: 0.5em;
+  margin: 0.5em;
   font-size: 0.8em;
   cursor: pointer;
   opacity: 0.5;
+  width: 25px;
+  height: 25px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('https://maxicortes.com.ar/webs/audio/img/icono-fullscreen.svg');
+}
+
+.fullscreen-button.activo{
+  background-image: url('https://maxicortes.com.ar/webs/audio/img/icono-small-screen.svg');
 }
 
 @media screen and (max-width: 800px){
@@ -17770,7 +17819,7 @@ window.addEventListener("message", main, false);
 
 <img id="texturas" src="https://www.maxicortes.com.ar/webs/audio/img/texturas.gif" alt="">
 <div id="canvas-holder"></div>
-<div class="fullscreen-button"><img class="fullscreen-icon" src="https://maxicortes.com.ar/webs/audio/img/icono-fullscreen.svg" alt="Toggle fullscreen"/></div>
+<div class="fullscreen-button"></div>
 
 
 
@@ -17870,22 +17919,20 @@ function windowResized() {
     if(toggle === true){
       $('#defaultCanvas0').addClass('fullscreen');
       $('#texturas').addClass('fullscreen');
-      document.querySelector('.fullscreen-icon').src = 'https://maxicortes.com.ar/webs/audio/img/icono-fullscreen.svg';
     }
     if(toggle === false){
       $('#defaultCanvas0').removeClass('fullscreen');
       $('#texturas').removeClass('fullscreen');
-      document.querySelector('.fullscreen-icon').src = 'https://maxicortes.com.ar/webs/audio/img/icono-small-screen.svg';
     }
   }
 
   $('.fullscreen-button').on('click', function(){
     $(this).toggleClass('activo');
     if($(this).hasClass('activo')){
-      visualesFullscreen(false);
+      visualesFullscreen(true);
     }
     else{
-      visualesFullscreen(true);
+      visualesFullscreen(false);
     }
   });
 
