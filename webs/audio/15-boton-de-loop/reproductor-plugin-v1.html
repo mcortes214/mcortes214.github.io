@@ -7,7 +7,7 @@ Archivo de reproductor, recuperado desde un iframe en el plugin de Sound Window.
 Contiene visuales con manchas oscuras y color dentro de una gama específica.
 
 CHANGELOG:
-- Corregir funcionamiento de loop; botón de loop
+- Corregir funcionamiento de loop; botón de loop (listo)
 
   ........... ÍNDICE ...........
 
@@ -17391,7 +17391,7 @@ function routearAudioNodes() {
 
 var intervaloSeek;
 var intervaloTestMetadata;
-let isLoopEnabled = true;
+let isLoopEnabled = false;
 
 
 //Funciones de reproducción de audio (controlan al seek)
@@ -17516,11 +17516,16 @@ function reproducirSeek(cancion){
     console.log('Transcurrido: '+tiempoTranscurrido);
     console.log('Total: '+duracionTotalDeEstaCancion);
 
-    //Loop
-    if(isLoopEnabled){
-      if(tiempoTranscurrido >= duracionTotalDeEstaCancion-1){
-        console.log('LOOPEANDO');
+    //Loopear o volver al principio al terminar
+    if(tiempoTranscurrido >= duracionTotalDeEstaCancion-1){
+      if(isLoopEnabled){
+        console.log('LOOPEAR');
         saltarA(cancionActiva, 0);
+      }
+      else {
+        console.log('DETENER');
+        saltarA(cancionActiva, 0);
+        detener(cancionActiva);
       }
     }
   },100);
