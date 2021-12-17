@@ -2,64 +2,11 @@
 <html lang="en">
 
 <!--
-VERSIÓN 1.3.6
+VERSIÓN 1.2
 Archivo de reproductor, recuperado desde un iframe en el plugin de Sound Window.
 Contiene visuales con manchas oscuras y color dentro de una gama específica.
-
-CHANGELOG:
-- Corregir funcionamiento de loop; botón de loop (listo)
-
-  ........... ÍNDICE ...........
-
-%% Includes externos
-
-LIBRERÍAS
-- %% p5.sound         Librería p5.sound agregada inline. Aprox 11.000 líneas.
-- %% CSS loading.io
-- %% CSS loading bar
-- %% JS Loading bar
-- %% CSS Rangeslider
-
-ESTILOS PROPIOS
-- %% Estilos propios
-- %% - General
-- %% - Reproductor
-- %% - Contenedores de canción
-- %% - Paneles de controles
-- %%   - Vertical
-- %%   - Controles de canal
-- %%   - Horizontal
-- %%   - Seek
-- %% - Preloaders
-- %% - Estilos de debug
-
-LIBRERÍAS (CONT.)
-- %% JS Rangeslider
-
-HTML
-- %% HTML Popup información
-- %% HTML Página reproductor
-- %% HTML Reproductor
-
-SCRIPTS PROPIOS
-- %% Scripts propios
-- %% - Variables globales
-- %% - Gestión de mensajes
-- %% - Web Audio API
-- %% - Generación de DOM
-- %% - Descarga e implementación de audios
-- %% - Funcionalidad de interfaz
-- %% - Audio Nodes - creación y routeo
-- %% - Playback y Seek
-- %% - Animación
-- %% - Scripts de debug
-- %% - Ejecución
-
-VISUALES
-%% Visuales
-%% - CSS visuales
-%% - HTML visuales
-%% - Scripts visuales
+Esta versión (V1.2) Intenta arreglar el problema de p5.
+try{} en error de sound.js
 -->
 
 <head>
@@ -67,33 +14,16 @@ VISUALES
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sound Window Player</title>
-
-  <!-- %% Includes externos -->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Quicksand:wght@300;500&family=Roboto:wght@100;400&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
-  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.js"></script> -->
-
-
-
-
-
-
-
-
 
 <!-- TEST: INCLUI P5.SOUND.JS INLINE
 TERMINA EN LINEA  11.870 -->
 
+
 <script type="text/javascript">
-
-
-
 /** [p5.sound]  Version: 0.3.12 - 2020-01-06 */
 /**
 *  <p>p5.sound extends p5 with <a href="http://caniuse.com/audio-api"
@@ -11946,7 +11876,7 @@ p5.Distortion.prototype.dispose = function () {
 
 
 
-<!--%% CSS loading.io -->
+<!-- CSS loading.io -->
 
 <style media="screen">
 
@@ -14216,20 +14146,7 @@ p5.Distortion.prototype.dispose = function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- %% CSS loading bar -->
+  <!-- CSS loading bar -->
 
   <style media="screen">
   .ldBar {
@@ -14256,19 +14173,7 @@ p5.Distortion.prototype.dispose = function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- %% JS Loading bar -->
+<!-- JS Loading bar -->
 
 <script type="text/javascript">
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
@@ -15088,13 +14993,7 @@ out$.presets = presets = {
 
 
 
-
-
-
-
-
-
-  <!-- %% CSS Rangeslider -->
+  <!-- Css Rangeslider -->
   <style media="screen">
   .rangeslider,
   .rangeslider__fill {
@@ -15119,7 +15018,7 @@ out$.presets = presets = {
 
   .rangeslider--vertical {
     width: 20px;
-    min-height: 130px;
+    min-height: 150px;
     max-height: 100%;
   }
 
@@ -15209,41 +15108,9 @@ out$.presets = presets = {
   }
 
   </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- %% Estilos propios -->
+  <!-- Estilos propios -->
   <style media="screen">
 
-  /* %% - General */
-
-  /* // @font-face {
-  //     font-family: 'LOVES';
-  //     src: url('https://www.maxicortes.com.ar/webs/audio/fonts/LOVES-REG.woff2') format('woff2'),
-  //         url('https://www.maxicortes.com.ar/webs/audio/fonts/LOVES-REG.woff') format('woff'),
-  //         url('https://www.maxicortes.com.ar/webs/audio/fonts/LOVES-REG.ttf"') format('truetype'),
-  //         url('https://www.maxicortes.com.ar/webs/audio/fonts/LOVES-REG.svg#LOVES-REG') format('svg');
-  //     font-weight: normal;
-  //     font-style: normal;
-  //     font-display: swap;
-  // } */
 
   .banner-titulo {
       z-index: 5;
@@ -15324,7 +15191,6 @@ out$.presets = presets = {
   }
 
   .caja-informacion {
-      font-family: 'Nunito Sans', sans-serif;
       width: 80%;
       border: 1px solid white;
       margin: auto;
@@ -15336,14 +15202,7 @@ out$.presets = presets = {
   }
 
   .caja-informacion em {
-      color: #aaa;
-  }
-
-  .caja-informacion h1,
-  .caja-informacion h2,
-  .caja-informacion h3 {
-    text-transform: uppercase;
-    font-weight: normal;
+      opacity: 0.6;
   }
 
   ::-webkit-scrollbar {
@@ -15397,24 +15256,8 @@ button.cerrar-informacion svg {
     height: 30px;
 }
 
-.flex-items-centrados {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.flex-items-centrados > * {
-    background: transparent;
-    width: 33%;
-    height: 100%;
-}
-.flex-items-centrados > * + * {
-  margin-left: 5%;
-}
-
-
   html {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Titillium Web', sans-serif;
   }
 
   body {
@@ -15446,31 +15289,14 @@ button.cerrar-informacion svg {
     display: none;
   }
 
-
-
-
-
-  /* %% - Reproductor */
-
-  /*Tooltips*/
-
-  .tippy-box {
-    background-color: black;
-    outline: 1px solid white;
-    border-radius: 0px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.8em;
-  }
-  .tippy-arrow{
-    display: none;
-  }
+  /* REPRODUCTOR */
 
   div#reproductor {
       width: 50%;
       color: white;
       text-transform: uppercase;
       font-size: 0.8em;
-      transform: scale(0.78);
+      transform: scale(0.8);
       margin-top: 30px;
   }
 
@@ -15497,15 +15323,6 @@ button.cerrar-informacion svg {
       color: black;
   }
 
-  .contenedor-error {
-      margin-left: 15vw;
-      margin-right: 15vw;
-      font-size: 0.9em;
-      line-height: 1.6em;
-      padding: 2em;
-      outline: 1px solid #aaa;
-  }
-
   div.overlay-precarga .small{
     font-size: 0.9em;
   }
@@ -15517,7 +15334,7 @@ button.cerrar-informacion svg {
 } */
 
 
-  /* %% - Contenedores de canción */
+  /* CONTENEDORES DE CANCIÓN */
 
   div.contenedor-cancion {
       display: none;
@@ -15550,7 +15367,7 @@ button.cerrar-informacion svg {
 
   div.seek {
       margin-top: 30px;
-      height: 55px;
+      height: 60px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -15575,15 +15392,10 @@ button.cerrar-informacion svg {
   .canal {
     display: flex;
     align-items: center;
-    flex-direction: column;
 }
 
-.interfaz-canal {
-    display: flex;
-    margin-bottom: 15px;
-}
 
-  /* %% - Paneles de controles */
+  /* PANELES DE CONTROLES */
 
   /* .contenedor-paneles-controles {
       display: flex;
@@ -15603,7 +15415,7 @@ button.cerrar-informacion svg {
       box-sizing: border-box;
   }
 
-  /* %%   - Vertical */
+  /* Vertical */
 
   .rangeslider--vertical {
       width: 2px;
@@ -15642,7 +15454,7 @@ button.cerrar-informacion svg {
     display: none;
   }
 
-  /* %%   - Controles de canal */
+  /* Controles de canal */
 
   /* Mute/solo */
 
@@ -15673,7 +15485,7 @@ button.cerrar-informacion svg {
   }
 
 
-  /* %%   - Horizontal */
+  /* Horizontal */
 
   .rangeslider--horizontal {
       height: 2px;
@@ -15712,7 +15524,7 @@ button.cerrar-informacion svg {
     display: none;
   }
 
-  /* %%   - Seek */
+  /* Seek */
   .seek{
     position: relative;
   }
@@ -15800,11 +15612,6 @@ button.cerrar-informacion svg {
       background-size: contain;
   }
 
-.separador-iconos-playback {
-  width: 10px;
-  height: 20px;
-}
-
   #play-pause-button{
     background-image: url('https://www.maxicortes.com.ar/webs/audio/img/boton-play.png');
   }
@@ -15822,19 +15629,11 @@ button.cerrar-informacion svg {
   }
   #rwd-button{
     background-image: url('https://www.maxicortes.com.ar/webs/audio/img/boton-rwd.png');
-    width: 30px;
+    width: 40px;
   }
   #fwd-button{
     background-image: url('https://www.maxicortes.com.ar/webs/audio/img/boton-fwd.png');
-    width: 30px;
-  }
-  #loop-button{
-    background-image: url('https://www.maxicortes.com.ar/webs/audio/img/boton-loop.png');
-    width: 30px;
-    opacity: 0.5;
-  }
-  #loop-button.enabled{
-    opacity: 1;
+    width: 40px;
   }
 
 
@@ -15853,7 +15652,7 @@ button.cerrar-informacion svg {
       color: white;
       text-transform: uppercase;
       font-size: 0.9em;
-      font-family: 'Roboto';
+      font-family: 'Titillium Web';
   }
 
   button.boton-cancion.activo {
@@ -15863,7 +15662,7 @@ button.cerrar-informacion svg {
   }
 
 
-  /* %% - Preloaders */
+  /*Preloaders */
 
   .preloaders{
     position: relative;
@@ -15885,30 +15684,15 @@ button.cerrar-informacion svg {
   }
 
 
-  /* %% - Estilos de debug */
+  /* ESTILOS DE DEBUG */
 
-        /*(por ahora ninguno)*/
 
 
   </style>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- %% JS Rangeslider -->
+  <!-- JS Rangeslider -->
   <script type="text/javascript">
 
   /*! rangeslider.js - v2.3.0 | (c) 2016 @andreruffert | MIT license | https://github.com/andreruffert/rangeslider.js */
@@ -16405,32 +16189,10 @@ button.cerrar-informacion svg {
       return 'rangeslider.js is available in jQuery context e.g $(selector).rangeslider(options);';
 
   }));
+
+
   </script>
 </head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- %% HTML Popup información -->
-
 <div class="overlay-informacion">
   <button class="cerrar-informacion">
     <svg viewbox="0 0 50 50">
@@ -16440,39 +16202,30 @@ button.cerrar-informacion svg {
   </button>
   <div class="caja-informacion">
     <h2>About this project</h2>
-    <p><strong>Sound window</strong> is an interactive - visual reactive sound piece hosted on a web page, the frequencies of an electroacoustic composition are interpreted into a real-time cinematic landscape.</p>
-    <p>Created during the lockdown the piece is inspired from Erik Satie´s «furniture music» concept, the audiovisual device helps to design our own soundscape indoors, as a way to connect throughout sound with the outside world, inviting us to relax, becoming functional to home activities, such as reading, writing, computer work, yoga, etc.</p>
-    <p>Combining sounds and musical textures generated with instruments and electronics, the different layers of sound, faint and delicate, can be managed through a virtual mixer allowing users to carry out their own sonic combinations and compositions, creating their own soundscapes, having audio manipulation tools (delays, reverbs) users can intervene the musical sound palette.</p>
+    <p><strong>Sound window</strong> is an interactive -  visual reactive sound piece hosted on a web page, the frequencies of an electroacoustic composition are interpreted into a real-time cinematic landscape.</p>
+    <p>Created during the lockdown the piece is inspired from Erik Satie´s «furniture music» concept, the audiovisual device helps to design our own soundscape indoors as a way to connect throughout sound with the outside world, to design our own soundscape indoors, inviting us to relax, becoming functional to indoors activities, such as reading, writing, computer work, yoga, etc.</p>
+    <p>Combining sounds and musical textures generated with instruments and electronics, the different layers of sound, faint and delicate, can be managed through a virtual mixer allowing users to carry out their own sonic combinations and compositions, creating their own soundscapes, having audio manipulation tools  (delays, reverbs) users can intervene the musical sound palette.</p>
     <h3>How to use:</h3>
     <ol>
-      <li>Wait until the player is loaded.</li>
-      <li>Choose the song and hit the play button to start the track.</li>
-      <li>Construct and deconstruct the music, create the soundscape which is more suitable for your space, move the faders to create your own mix, adding or removing sound layers (feel free to play everything, it won´t break).</li>
+      <li>Wait until the player is loaded</li>
+      <li>Choose the song and hit the play button to start the track</li>
+      <li>Choose the song and hit the play button to start the track</li>
+      <li>Construct and deconstruct the music, create the soundscape which is more suitable for your space, move the faders to create your own mix, adding or removing sound layers (feel free to play everything, it won't break).</li>
       <li>Experiment with the sound effects, add Delay Time - Delay Feedback and Reverb as much as you want!</li>
       <li>Enjoy.</li>
     </ol>
     <p><em>This project was possible thanks to the support of Asylum Arts and Chateau Ephemere.</em></p>
-    <div class="flex-items-centrados">
-      <img src="https://www.maxicortes.com.ar/webs/audio/img/asylum-arts-logo-color.png" alt="Asylum Arts"/>
-      <img src="https://www.maxicortes.com.ar/webs/audio/img/chateau-ephemere-logo.jpeg" alt="Chateau Ephemere"/>
-    </div>
   </div>
 </div>
 
 <div class="overlay-precarga">
 <body>
 
+<!-- HTML Reproductor -->
 
 
 
 
-
-
-
-
-
-
-<!-- %% HTML Página reproductor -->
 
   <div class="preloaders">
     <div class="prel ld ld-ring ld-spin" style="font-size:140px; animation-duration:2s; opacity:0.2"></div>
@@ -16494,32 +16247,12 @@ button.cerrar-informacion svg {
   <button class="boton-informacion">About</button>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- %% HTML reproductor -->
-
 <div id="reproductor">
+
 
   <div id="selectores-canciones"></div>   <!-- Contenido dinámico -->
   <div id="canciones"></div>                <!-- Contenido dinámico -->
   <div id="controles-globales">
-
-  <!-- Este contenedor de tooltips sigue siendo relevante? -->
-  <!-- <div class="contenedor-tooltips">
-    <div class="tooltip" id="tooltip-prev">Previous song</div>
-  </div> -->
 
 <div class="contenedor-paneles-controles">
   <div class="panel-controles">
@@ -16548,18 +16281,19 @@ button.cerrar-informacion svg {
 
 
 
+
+
+
 <!-- Descomentar playback! -->
 
     <!-- Playback -->
     <div class="seccion-playback">
-      <button class="playback-control" id="prev-button">Previous Song</button>
-      <button class="playback-control" id="rwd-button">Rewind</button>
+      <button class="playback-control" id="prev-button">PREV</button>
+      <button class="playback-control" id="rwd-button">RWD</button>
       <button class="playback-control" id="play-pause-button">Play/pause</button>
       <button class="playback-control" id="stop-button">Stop</button>
-      <button class="playback-control" id="fwd-button">Forward</button>
-      <button class="playback-control" id="next-button">Next song</button>
-      <div class="separador-iconos-playback"></div>
-      <button class="playback-control" id="loop-button">Loop</button>
+      <button class="playback-control" id="fwd-button">FWD</button>
+      <button class="playback-control" id="next-button">NEXT</button>
     </div>
 
 
@@ -16573,22 +16307,12 @@ button.cerrar-informacion svg {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- %% Scripts propios -->
+<!-- SCRIPTS -->
 
 <script type="text/javascript">
 
 console.log('Sound Window Player v4.0:');
+
 
 // Sintaxis:
 
@@ -16606,7 +16330,6 @@ console.log('Sound Window Player v4.0:');
 // }
 
 // //-----
-
 
 // function func2() {
 //   código;
@@ -16632,7 +16355,8 @@ console.log('Sound Window Player v4.0:');
 
 
 // VARIABLES GLOBALES ----------------------
-//%% - Variables globales
+
+
 
 //Estructuras de datos, parseo de iframe
 var songInfo = {};
@@ -16652,7 +16376,7 @@ const elementoCanciones = document.getElementById('canciones');
 
 
 // GESTIÓN DE MENSAJES -----------------------------------
-// %% - Gestión de mensajes
+
 
 // Funciones
 
@@ -16674,21 +16398,10 @@ function receiveMessage(e){
 
 //-----
 
-let nombresDeTracks = [
-    ['Strings', 'Organ', 'Bowl'],
-    ['Strings 01', 'Strings 02', 'Tiny strings', 'Bass', 'Synth', 'Organ'],
-    ['Strings', 'Bowl', 'Organ']
-  ];
-
 function parsearMensaje(datos){
 
   var songs = datos.tracks;
   var rv = datos.reverb;
-  //El Index del plugin no tiene los nombres; solo levantarlos de ahí
-  // cuando actualice el plugin para incorporarlos
-  if(datos.nombres){
-    nombresDeTracks = datos.nombres;
-  }
   impulseSource = rv;
 
   for(var i=0; i < Object.keys(songs).length; i++){
@@ -16725,7 +16438,6 @@ function parsearMensaje(datos){
 
 
 // WEB AUDIO API  -----------------------------------
-// %% - Web Audio API
 
 var AudioContext = window.AudioContext // Default
     || window.webkitAudioContext // Safari and old versions of Chrome
@@ -16741,11 +16453,7 @@ if (AudioContext) {
     alert("Sorry, but the Web Audio API is not supported by your browser. Please, consider upgrading to the latest version or downloading Google Chrome or Mozilla Firefox");
 }
 
-
-
-
 // GENERACIÓN DE DOM -----------------------------------
-// %% - Generación de DOM
 
 //Variables
 
@@ -16754,13 +16462,6 @@ var esPrimeraCancion = true;
 // Funciones
 
 function generarDOM() {
-
-  // Precargar imágenes dinámicas con variables descartables.
-  var preloadedPauseIcon = new Image();
-  preloadedPauseIcon.src="https://maxicortes.com.ar/webs/audio/img/boton-pause.png";
-  var preloadedSmallScreenIcon = new Image();
-  preloadedPauseIcon.src="https://maxicortes.com.ar/webs/audio/img/icono-small-screen.svg";
-
   console.log('generarDOM ejecutándose');
    return new Promise(function(resolve, reject){
 
@@ -16781,7 +16482,6 @@ function generarDOM() {
        for (var j = 0; j < tracksEnEstaCancion; j++) {
          // - Generar un channel strip ("#canal")
          generarCanalIndividual(elementoCanalesEstaCancion, i, j);
-
        }
 
        //E inicializar todos los sliders
@@ -16814,13 +16514,10 @@ function generarCanalIndividual(elementoCanalesEstaCancion, i, j){
   //el src se reemplaza por el del blob.
   $(elementoCanalesEstaCancion).append(`
     <div class="canal">
-      <div class="interfaz-canal">
-        <input type="range" class="rangeslider" data-accion="volumen-canal" data-cancion="`+i+`" data-track="`+j+`" id="volumen-cancion-`+i+`-track-`+j+`" min="0" max="1" value="0.5" step="0.001" data-orientation="vertical">
-        <div class="contenedor-controles-canal">
-          <div class="boton-mute-canal" data-cancion="`+i+`" data-track="`+j+`" id="mute-cancion-`+i+`-track-`+j+`">M</div>
-        </div>
+      <input type="range" class="rangeslider" data-accion="volumen-canal" data-cancion="`+i+`" data-track="`+j+`" id="volumen-cancion-`+i+`-track-`+j+`" min="0" max="1" value="0.5" step="0.001" data-orientation="vertical">
+      <div class="contenedor-controles-canal">
+        <div class="boton-mute-canal" data-cancion="`+i+`" data-track="`+j+`" id="mute-cancion-`+i+`-track-`+j+`">M</div>
       </div>
-      <div class="label-canal">`+ nombresDeTracks[i][j] +`</div>
       <audio id="audio-cancion-`+i+`-track-`+j+`" src="`+audioURLs[i][j]+`" crossorigin="anonymous"></audio>
     </div>
     `);
@@ -16881,7 +16578,6 @@ function generarSelector(i, nombreCancion) {
 
 
 //DESCARGA E IMPLEMENTACIÓN DE AUDIOS
-// %% - Descarga e implementación de audios
 //Bajar los audios por HTTP, gestionar precarga, crear tags <audio>
 
 //ACÁ TAMBIÉN BAJAR LA REVERB
@@ -16928,9 +16624,6 @@ function descargarAudios() {
         req.responseType = 'blob';
         req.onprogress = onProgress;
         req.onload = onLoad;
-        req.onerror = errorDeDescarga;
-        req.onabort = errorDeDescarga;
-        req.ontimeout = errorDeDescarga;
         req.send();
       }
       //Enviar las solicitudes una vez que están todas listas, no antes
@@ -17027,36 +16720,12 @@ function onLoadReverb(e) {
 
 //------
 
-let alreadyThrewError = false;
-
-function errorDeDescarga(e){
-  if(alreadyThrewError){
-    return;
-  }
-  else{
-    document.querySelector('.overlay-precarga').innerHTML = `
-    <div class="contenedor-error">
-      <p>A temporary error has occurred. Here are some things you can try:</p>
-      <ul>
-        <li>Check your internet connection.</li>
-        <li>If your connection is OK, refresh the browser.</li>
-        <li>If refreshing your browser doesn't solve the problem, our servers might be temporarily unavailable; please try again later.</li>
-      </ul>
-    </div>
-    `
-    alreadyThrewError = true;
-  }
-}
-
-//------
-
 
 
 
 
 
 // FUNCIONALIDAD DE INTERFAZ - acá vincular controles con variables
-// %% - Funcionalidad de interfaz
 
 // Variables
 
@@ -17066,7 +16735,6 @@ const botonPrev = document.getElementById('prev-button');
 const botonNext = document.getElementById('next-button');
 const botonRwd = document.getElementById('rwd-button');
 const botonFwd = document.getElementById('fwd-button');
-const botonLoop = document.getElementById('loop-button');
 
 var cancionActiva = 0;
 
@@ -17122,32 +16790,31 @@ function moverControl(input) {
 //Mapear interfaces: event listeners para todos los botones
 function mapearInterfaces() {
 
-  //Tooltips
-  tippy(botonPrev, {content: 'Previous song',});
-  tippy(botonNext, {content: 'Next song',});
-  tippy(botonFwd, {content: 'Fast forward',});
-  tippy(botonRwd, {content: 'Rewind',});
-  tippy(botonPlayPause, {content: 'Play/Pause',});
-  tippy(botonDetener, {content: 'Stop',});
-  tippy(botonLoop, {content: 'Enable/disable loop',});
-
-  tippy('.boton-mute-canal', {content: 'Mute'});
-  tippy('.rangeslider.rangeslider--vertical', {content: 'Track volume'});
-  tippy('.seek .rangeslider__handle', {content: 'Seek bar'});
-  tippy('.efecto-on-off', {content: 'Enable/disable FX'});
-  tippy('.panel-controles .rangeslider--horizontal', {content: 'FX Amount'});
-
   //Selectores de canción
 
   $(document).on('click', '.boton-cancion', function () {
+    //Detener reproducción
+    detener(cancionActiva);
+    //Reconocer canción clickeada
     var dataCancion = $(this).attr('data-cancion');
-    cambiarACancion(dataCancion);
+    var selectorSeccionCancion = '.cancion[data-cancion="'+ dataCancion +'"]';
+    var cancionSeleccionada = $(selectorSeccionCancion);
+    //Cambiar clases
+    $('.boton-cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
+    $(this).addClass('activo'); //agregarla a la canción seleccionada
+    $('.cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
+    cancionSeleccionada.addClass('activo'); //agregarla a la canción seleccionada
+    cancionActiva = dataCancion;
+    console.log(cancionActiva);
+    //Modificar routeo de nodos (master)
+    nodes[cancionActiva].bus.connect(nodes.masterGain);
   });
 
   //Canción previa
 
   $(botonPrev).on('click', function () {
-
+    //Detener reproducción
+    detener(cancionActiva);
     //Reconocer canción previa
     var dataCancion;
     if (cancionActiva!=0) { //si no es la primera
@@ -17158,26 +16825,47 @@ function mapearInterfaces() {
       dataCancion = 0;  //mantenerlo en 0
       console.log('era primera cancion');
     }
+    var selectorSeccionCancion = '.cancion[data-cancion="'+ dataCancion +'"]';
+    var cancionSeleccionada = $(selectorSeccionCancion);
+    //Cambiar clases
+    $('.boton-cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
+    $('.boton-cancion[data-cancion="'+ dataCancion +'"]').addClass('activo'); //agregarla a la canción seleccionada
 
-    cambiarACancion(dataCancion);
+    $('.cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
+    cancionSeleccionada.addClass('activo'); //agregarla a la canción seleccionada
+    cancionActiva = dataCancion;
+    console.log(cancionActiva);
+    //Modificar routeo de nodos (master)
+    nodes[cancionActiva].bus.connect(nodes.masterGain);
   });
 
   //Canción siguiente
 
   $(botonNext).on('click', function () {
-    //Reconocer canción siguiente
+    //Detener reproducción
+    detener(cancionActiva);
+    //Reconocer canción previa
     var dataCancion;
     if (cancionActiva!=cantidadDeCanciones-1) { //si no es la última
       dataCancion = cancionActiva + 1;
       console.log('cancion siguiente');
     }
-    else{  //si es la última
+    else{  //si es la primera (igual a 0)
       dataCancion = cantidadDeCanciones-1;  //mantenerlo en su valor actual
       console.log('era última cancion');
     }
+    var selectorSeccionCancion = '.cancion[data-cancion="'+ dataCancion +'"]';
+    var cancionSeleccionada = $(selectorSeccionCancion);
+    //Cambiar clases
+    $('.boton-cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
+    $('.boton-cancion[data-cancion="'+ dataCancion +'"]').addClass('activo'); //agregarla a la canción seleccionada
 
-    cambiarACancion(dataCancion);
-
+    $('.cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
+    cancionSeleccionada.addClass('activo'); //agregarla a la canción seleccionada
+    cancionActiva = dataCancion;
+    console.log(cancionActiva);
+    //Modificar routeo de nodos (master)
+    nodes[cancionActiva].bus.connect(nodes.masterGain);
   });
 
   //Rewind
@@ -17230,18 +16918,6 @@ function mapearInterfaces() {
   });
 
 
-  //Loop
-
-  $(botonLoop).on('click', function () {
-    $(this).toggleClass('enabled');
-    if($(this).hasClass('enabled')){
-      isLoopEnabled = true;
-    }
-    else{
-      isLoopEnabled = false;
-    }
-  });
-
   //Mute
   $('.boton-mute-canal').on('click', function () {
       var cancion = $(this).data('cancion');
@@ -17288,7 +16964,7 @@ function mapearInterfaces() {
 
 
 // AUDIO NODES - Creación y routeo --------------------------------------------
-// %% - Audio Nodes - creación y routeo
+
 
 
 function crearAudioNodes() {
@@ -17387,55 +17063,12 @@ function routearAudioNodes() {
 
 
 // PLAYBACK --------------------------------------------
-// %% - Playback y Seek
 
 var intervaloSeek;
 var intervaloTestMetadata;
-let isLoopEnabled = false;
 
 
 //Funciones de reproducción de audio (controlan al seek)
-
-function cambiarACancion(dataCancion){
-  //Detener reproducción
-  detener(cancionActiva);
-  //Identificar sección de canción
-  var selectorSeccionCancion = '.cancion[data-cancion="'+ dataCancion +'"]';
-  var cancionSeleccionada = $(selectorSeccionCancion);
-  //Cambiar clases
-  $('.boton-cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
-  $('.boton-cancion[data-cancion="'+ dataCancion +'"]').addClass('activo'); //agregarla a la canción seleccionada
-  $('.cancion').removeClass('activo'); //eliminar el activo de todos los contenedores
-  cancionSeleccionada.addClass('activo'); //agregarla a la canción seleccionada
-  cancionActiva = dataCancion;
-  console.log(cancionActiva);
-  //Modificar routeo de nodos (master)
-  nodes[cancionActiva].bus.connect(nodes.masterGain);
-
-  //Resetear todos los FX (a manopla esta vez, no tengo 2-way data binding):
-
-    //Delay time
-    $(document.getElementById('delay-time')).val(0).change();  //Interfaz
-    nodes.delay.delayTime.value = 0;      //Valor
-    //Delay time
-    $(document.getElementById('delay-feedback')).val(0).change();
-    nodes.delayFeedback.value = 0;
-    //Reverb
-    $(document.getElementById('reverb-wet')).val(0).change();
-    nodes.reverbGain.gain.value = 0;
-
-    //Delay on/off
-    $('#delay-on-off').removeClass('activo');
-    nodes.delay.disconnect();
-    //Reverb on/off
-    $('#reverb-on-off').removeClass('activo');
-    nodes.reverbGain.disconnect();
-
-
-    //
-  $('#play-pause-button').addClass('reproduciendo');
-  reproducir(cancionActiva);
-}
 
 function reproducir(cancion){
   if (audioCtx.state === 'suspended') {
@@ -17503,10 +17136,8 @@ function saltarA(cancion, segundos){
 
 //------
 
-
 function reproducirSeek(cancion){
   var primerAudioEnEstaCancion = document.getElementById('audio-cancion-'+cancion+'-track-0');
-  var duracionTotalDeEstaCancion = songInfo[cancion].songDuration;
   var tiempoTranscurrido;
   intervaloSeek = setInterval(function(){
     // Obtener currentTime del primer audio de la canción
@@ -17515,20 +17146,13 @@ function reproducirSeek(cancion){
     actualizarVisorSeek(cancion);
     console.log('Transcurrido: '+tiempoTranscurrido);
     console.log('Total: '+duracionTotalDeEstaCancion);
-
-    //Loopear o volver al principio al terminar
-    if(tiempoTranscurrido >= duracionTotalDeEstaCancion-1){
-      if(isLoopEnabled){
-        console.log('LOOPEAR');
-        saltarA(cancionActiva, 0);
-      }
-      else {
-        console.log('DETENER');
-        saltarA(cancionActiva, 0);
-        detener(cancionActiva);
-      }
-    }
   },100);
+
+
+  //Loop
+  if(tiempoTranscurrido >= duracionTotalDeEstaCancion-1){
+    saltarA(cancionActiva, 0);
+  }
 
 }
 
@@ -17568,9 +17192,10 @@ function inicializarSeeks() {
 }
 
 //------
+var duracionTotalDeEstaCancion;
 
 function cambiarValoresMaximosSeek(aud, indice){
-  songInfo[indice].songDuration = aud.duration;
+  duracionTotalDeEstaCancion = aud.duration;
   //Actualizar valor máximo de los input
   var objetoInput = $('#slider-seek-control-cancion-'+indice);
   var objetoMarcador = $('#slider-seek-view-cancion-'+indice);
@@ -17621,12 +17246,7 @@ function actualizarVisorSeek(cancion){
 }
 
 
-
-
-
 //ANIMACIÓN ---------------------------------------------
-// %% - Animación
-
 
 function borrarOverlay() {
   $('.overlay-precarga').animate({'opacity':'0'},1000,function(){
@@ -17651,20 +17271,23 @@ $(document).ready(function(){
   });
 });
 
-
-
-
-
-
 // DEBUG --------------------------------------------
-// %% - Scripts de debug
 
-  //(Vacío por ahora)
+
+
+
+
+
+
+
+
+
+
 
 
 
 // EJECUCIÓN --------------------------------------------
-// %% - Ejecución
+
 
 
 
@@ -17709,6 +17332,7 @@ function main(e) {
 var bufferLength;
 var dataArray;
 
+
 function postAudioLoad() {
   console.log('todos los audios cargados');
   clearInterval(intervaloPrecarga);
@@ -17727,26 +17351,14 @@ function postAudioLoad() {
 
 
 
+
 //Llamar todo el código desde el event listener:
 window.addEventListener("message", main, false);
 
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- %% Visuales -->
-
-<!-- %% - CSS visuales -->
+<!-- VISUALES -->
 <style media="screen">
 #texturas {
     position: absolute;
@@ -17771,73 +17383,14 @@ window.addEventListener("message", main, false);
   z-index: -2;
 }
 
-.fullscreen-button{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 110;
-  color: white;
-  margin: 0.5em;
-  font-size: 0.8em;
-  cursor: pointer;
-  opacity: 0.5;
-  width: 25px;
-  height: 25px;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url('https://maxicortes.com.ar/webs/audio/img/icono-fullscreen.svg');
-}
-
-.fullscreen-button.activo{
-  background-image: url('https://maxicortes.com.ar/webs/audio/img/icono-small-screen.svg');
-}
-
-@media screen and (max-width: 800px){
-  .fullscreen-button{
-    display: none;
-  }
-}
-
-/*Funcionalidad de fullscreen solo en escritorio*/
-
-@media screen and (min-width: 800px){
-  #texturas.fullscreen{
-    width: 100%;
-    z-index: 105;
-    object-fit: cover;
-  }
-  #defaultCanvas0.fullscreen{
-    width: 100% !important;
-    z-index: 100;
-  }
-}
-
 </style>
-
-
-
-
-
-
-<!-- %% - HTML visuales -->
-
 <img id="texturas" src="https://www.maxicortes.com.ar/webs/audio/img/texturas.gif" alt="">
-<div id="canvas-holder"></div>
-<div class="fullscreen-button"></div>
+<div id="canvas-holder">
 
+</div>
 
-
-
-<!-- %% - Scripts visuales -->
 
 <script type="text/javascript">
-
-  //DOM
-
-
-
-  // p5
   var h;
   var step;
   var imgs = new Array(10);
@@ -17920,41 +17473,7 @@ function windowResized() {
 
   }
 
-  function visualesFullscreen(toggle){
-    if(toggle === true){
-      $('#defaultCanvas0').addClass('fullscreen');
-      $('#texturas').addClass('fullscreen');
-    }
-    if(toggle === false){
-      $('#defaultCanvas0').removeClass('fullscreen');
-      $('#texturas').removeClass('fullscreen');
-    }
-  }
-
-  $('.fullscreen-button').on('click', function(){
-    $(this).toggleClass('activo');
-    if($(this).hasClass('activo')){
-      visualesFullscreen(true);
-    }
-    else{
-      visualesFullscreen(false);
-    }
-  });
-
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
