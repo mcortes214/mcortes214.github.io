@@ -16654,6 +16654,37 @@ const elementoCanciones = document.getElementById('canciones');
 // GESTIÓN DE MENSAJES -----------------------------------
 // %% - Gestión de mensajes
 
+//Variables
+
+let objetosCancionesProvisional = {
+  tracks: {
+    'Emotional Flashlight 01': {
+      track_1: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef1/01-strings.webm',
+      track_2: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef1/02-organ.webm',
+      track_3: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef1/03-bowl.webm',
+    },
+    'Emotional Flashlight 02': {
+      track_1: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef2/01-strings-01.webm',
+      track_2: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef2/02-strings-02.webm',
+      track_3: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef2/03-tiny-strings.webm',
+      track_4: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef2/04-bass.webm',
+      track_5: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef2/05-synth.webm',
+      track_6: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef2/06-organ.webm',
+    },
+    'Emotional Flashlight 03': {
+      track_1: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef3/01-strings.webm',
+      track_2: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef3/02-bowl.webm',
+      track_3: 'https://www.maxicortes.com.ar/webs/audio/audio/webm/ef3/03-organ.webm',
+    },
+  },
+  reverb: 'https://www.maxicortes.com.ar/webs/audio/audio/reverb-ir.wav',
+  nombres: [
+    ['Strings', 'Organ', 'Bowl'],
+    ['Strings 01', 'Strings 02', 'Tiny strings', 'Bass', 'Synth', 'Organ'],
+    ['Strings', 'Bowl', 'Organ']
+  ],
+};
+
 // Funciones
 
 function receiveMessage(e){
@@ -16664,7 +16695,8 @@ function receiveMessage(e){
   return new Promise(function(resolve, reject){
     if(event.data!='mouseup'){
       console.log('mensaje recibido');
-      parsearMensaje(event.data);
+      // parsearMensaje(event.data); //No vamos a usar el index de Melmann
+      parsearMensaje(objetosCancionesProvisional); //Sino que forzamos nuestro objeto de datos
       resolve();
     }
   });
@@ -16674,11 +16706,11 @@ function receiveMessage(e){
 
 //-----
 
-let nombresDeTracks = [
-    ['Strings', 'Organ', 'Bowl'],
-    ['Strings 01', 'Strings 02', 'Tiny strings', 'Bass', 'Synth', 'Organ'],
-    ['Strings', 'Bowl', 'Organ']
-  ];
+// let nombresDeTracks = [
+//     ['Strings', 'Organ', 'Bowl'],
+//     ['Strings 01', 'Strings 02', 'Tiny strings', 'Bass', 'Synth', 'Organ'],
+//     ['Strings', 'Bowl', 'Organ']
+//   ];
 
 function parsearMensaje(datos){
 
