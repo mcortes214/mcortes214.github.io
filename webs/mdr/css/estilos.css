@@ -624,6 +624,10 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   flex-direction: column;
 }
 
+.object-position-right {
+  object-position: right;
+}
+
 .l-series-invencion {
   display: flex;
   flex-wrap: wrap;
@@ -1207,13 +1211,27 @@ ul.slick-dots li.slick-active button {
   border: 0;
 }
 
+.featherlight-next:hover {
+  background: url("../img/flecha-der.svg");
+  background-position: center;
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+}
+
+.featherlight-previous:hover {
+  background: url("../img/flecha-izq.svg");
+  background-position: center;
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+}
+
 .featherlight-previous {
   left: 0;
   top: 0;
 }
 
 .featherlight-previous span {
-  text-shadow: none;
+  font-size: 0;
 }
 
 .featherlight-next {
@@ -1222,7 +1240,7 @@ ul.slick-dots li.slick-active button {
 }
 
 .featherlight-next span {
-  text-shadow: none;
+  font-size: 0;
 }
 
 @media screen and (min-width: 800px) {
