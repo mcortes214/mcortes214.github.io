@@ -960,6 +960,11 @@ body.color-negativo a:link, body.color-negativo a:visited, body.color-negativo a
   object-fit: contain;
 }
 
+.fullscreen-100vh {
+  width: auto;
+  height: 100vh;
+}
+
 .frame-imagen-completa-laberinto {
   width: 100vw;
   height: auto;
