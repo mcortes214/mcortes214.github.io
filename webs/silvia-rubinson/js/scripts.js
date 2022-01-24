@@ -35,3 +35,15 @@ function resizeImages(){
         }
     }
 }
+
+
+//Panzoom
+
+const pannedElements = document.querySelectorAll('.js-panning');
+
+for (let element of pannedElements){
+    const panzoom = Panzoom(element,{
+        disableZoom: true,
+        canvas: true
+    });
+}

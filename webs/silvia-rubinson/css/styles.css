@@ -16,8 +16,12 @@ html {
   --font-body: "Helvetica Neue";
   --font-display: "Olivetti";
   --font-size-large: 2em;
+  --font-size-medium-large: 1.5em;
+  --font-size-small: 0.85em;
   --color-black: #333;
   --color-white: #eee;
+  --color-pure-black: #000;
+  --color-pure-white: #fff;
   --s05: 0.5em;
   --s075: 0.75em;
   --s1: 1em;
@@ -37,6 +41,16 @@ body {
 body.dark-theme {
   --background-color: var(--color-black);
   --foreground-color: var(--color-white);
+}
+
+body.dark-theme-pure-colors {
+  --background-color: var(--color-pure-black);
+  --foreground-color: var(--color-white);
+}
+
+body.light-theme-pure-colors {
+  --background-color: var(--color-pure-white);
+  --foreground-color: var(--color-black);
 }
 
 body {
@@ -63,6 +77,13 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+.large-highlighted-link {
+  text-decoration: none;
+  font-size: var(--font-size-medium-large);
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+}
+
 .menu-link-1 {
   text-decoration: none;
 }
@@ -76,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .menu-link-2:hover, .menu-link-2--is-active {
   font-weight: bold;
-  margin-left: var(--s2);
+  padding-left: var(--s2);
 }
 
 .fading-fullscreen-slider {
@@ -129,6 +150,17 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100vh;
   display: flex;
+}
+
+.l-center-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.l-center-box--center-left {
+  justify-content: flex-start;
 }
 
 .l-fullscreen-two-panels {
@@ -194,6 +226,11 @@ h1, h2, h3, h4, h5, h6 {
   object-position: 0 center;
 }
 
+.full-sized-image {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
 .u-align-right {
   text-align: right !important;
 }
@@ -208,6 +245,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .u-all-pointer-events {
   pointer-events: all !important;
+}
+
+.u-font-size-small {
+  font-size: var(--font-size-small);
 }
 
 .cft-js-height-equalizing-row {
