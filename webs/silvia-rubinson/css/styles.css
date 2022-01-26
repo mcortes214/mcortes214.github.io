@@ -226,9 +226,11 @@ h1, h2, h3, h4, h5, h6 {
   object-position: 0 center;
 }
 
-.full-sized-image {
-  min-height: 100vh;
-  min-width: 100vw;
+.full-sized-image--vertical {
+  width: 100vw;
+}
+.full-sized-image--horizontal {
+  height: 100vh;
 }
 
 .u-align-right {
@@ -249,18 +251,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .u-font-size-small {
   font-size: var(--font-size-small);
-}
-
-.cft-js-height-equalizing-row {
-  display: flex;
-}
-.cft-js-height-equalizing-row > * + * {
-  margin-left: 20px;
-}
-
-.cft-horizontal-large-image {
-  height: 100vh !important;
-  display: block;
 }
 
 .cft-post-arrow {
