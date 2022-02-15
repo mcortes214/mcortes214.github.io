@@ -1,0 +1,182 @@
+html{
+  font-size: 0.9em;
+}
+
+body{
+  font-family: 'Lato';
+  margin: 50px;
+  color: #666;
+}
+
+.link-volver-atras:link,
+.link-volver-atras:visited,
+.link-volver-atras:hover,
+.link-volver-atras:active{
+    color: #088;
+}
+
+.overlay-pagina {
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition: 1s;
+}
+input[type="date"] {
+    margin: 25px;
+}
+button#crear-hoja {
+    background-color: #088;
+    color: white;
+    border: 0;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button.boton-superior.imprimir {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    background: #088;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.row-header{
+  display: flex;
+}
+
+.col-header{
+  width: 50%;
+}
+
+img.logo-provalores {
+    width: 200px;
+}
+
+img.sol {
+    width: 50px;
+}
+
+.col-header.contenedor-saludo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+img.calidad {
+    width: 100px;
+}
+
+.banner-titulo {
+    border-bottom: 1px solid #c00;
+    padding: 1.2em 0;
+}
+
+h1 {
+    font-size: 1.6em;
+    display: inline;
+    letter-spacing: -1px;
+    color: #c00;
+}
+
+span.texto-chico-titulo {
+    margin-left: 8px;
+}
+
+h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    color: black;
+}
+
+.fecha-inicial {
+    text-align: right;
+}
+
+.row-años {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.columna-año {
+    width: 90%;
+    line-height: 0.9em;
+}
+
+h3.titulo-año {
+    margin-bottom: 2em;
+    color: black;
+}
+
+.contenedor-bloque-pago:not(:last-of-type) {
+  margin-bottom: 2em;
+}
+.contenedor-bloque-pago {
+    display: flex;
+    align-items: stretch;
+}
+
+.bloque-pago {
+    padding-left: 20px;
+    width: 50%;
+    background-color: white;
+    z-index: 1;
+}
+
+p.fecha-pago {
+    margin: 0.7em;
+}
+
+.cantidad-cuotas {
+    margin: 0 0 0 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.llave {
+    width: 20px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 20px;
+    margin-left: -10px;
+}
+
+.monto-cheques {
+    color: #666;
+    font-size: 0.8em;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 1px solid #666;
+    height: 60px;
+    width: 160px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+@media print {
+	button.imprimir {
+		display: none;
+	}
+
+span.monto{
+  font-weight: bold;
+}
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js\moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <title>Fechas y plazos de operaciones - Provalores</title>
+  </head>
+  <body>
+
+<button type="button" class="boton-superior imprimir" name="button">Imprimir</button>
+
+<div class="overlay-pagina">
+  <p>Ingresar fecha inicial:</p>
+  <input type="date" id="input-fecha">
+  <button id="crear-hoja" type="button" name="button">Crear hoja de fechas</button>
+</div>
+
+<!-- Provalores Asesores Financieros -->
+<div class="row-header">
+  <div class="col-header contenedor-logo">
+    <img class="logo-provalores" src="img/logo-provalores.png" alt="">
+  </div>
+  <div class="col-header contenedor-saludo">
+    <img src="img/calidad.png" alt="Garantía de calidad" class="calidad">
+    <p class="fecha-inicial">¡Buen día! <img src="img/sol.jpg" class="sol" alt="Sol"> Hoy es <span class="fecha-de-hoy"></span></p>
+  </div>
+</div>
+
+<!-- [Sello de garantía] -->
+
+
+
+<div class="banner-titulo">
+  <h1>Listado de fechas y plazos de operaciones</h1> <span class="texto-chico-titulo">(a: 4, 5, 6 meses)</span>
+</div>
+
+<h2>Cuotas:</h2>
+
+
+<div class="row-años">
+  <div class="columna-año">
+    <div class="contenedor-bloque-pago">
+    <div class="bloque-pago bloque-1">
+    </div>
+    <div class="llave"></div>
+    <p class="cantidad-cuotas">a 4 meses plazo</p>
+  </div>
+  <div class="contenedor-bloque-pago">
+    <div class="bloque-pago bloque-2">
+    </div>
+    <div class="llave"></div>
+    <p class="cantidad-cuotas">a 5 meses plazo</p>
+  </div>
+
+  <div class="contenedor-bloque-pago">
+    <div class="bloque-pago bloque-3">
+    </div>
+    <div class="llave"></div>
+    <p class="cantidad-cuotas">a 6 meses plazo</p>
+  </div>
+  <p class="monto-cheques">Monto de cada cheque:<br><br>$_________________________</p>
+
+
+</div>
+
+
+</div>
+
+  </body>
+</html>
