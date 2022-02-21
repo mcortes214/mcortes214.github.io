@@ -17,7 +17,7 @@ html {
   --font-display: "Olivetti";
   --font-size-large: 2em;
   --font-size-medium-large: 1.5em;
-  --font-size-small: 0.85em;
+  --font-size-small: 0.75em;
   --color-black: #333;
   --color-white: #eee;
   --color-pure-black: #000;
@@ -272,4 +272,21 @@ h1, h2, h3, h4, h5, h6 {
 .cft-post-arrow--right {
   right: 0;
   background-image: url("../img/arrow-right-black.svg");
+}
+
+.cft-textos-contenedor {
+  margin-bottom: 10em;
+}
+
+.cft-textos-item {
+  width: 50%;
+  margin-top: 8em;
+}
+
+.cft-offset-25 {
+  margin-left: 25%;
+}
+
+.cft-offset-50 {
+  margin-left: 50%;
 }
