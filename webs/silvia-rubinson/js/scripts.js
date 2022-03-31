@@ -8,6 +8,16 @@ $('.fading-fullscreen-slider').slick({
     'pauseOnHover': false,
 });
 
+$('.text-slider').slick({
+    'arrows': false,
+    'dots': false,
+    'fade': true,
+    'autoplay': true,
+    'autoplaySpeed': 2000,
+    'pauseOnFocus': false,
+    'pauseOnHover': false,
+});
+
 //Equal height for images
 let equalRows = new EqualHeightRows('.js-equal-height-row');
 

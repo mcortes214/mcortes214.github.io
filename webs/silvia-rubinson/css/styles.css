@@ -19,6 +19,8 @@ html {
   --font-size-medium-large: 1.5em;
   --font-size-small: 0.75em;
   --color-black: #333;
+  --color-medium-gray: #777;
+  --color-light-gray: #aaa;
   --color-white: #eee;
   --color-pure-black: #000;
   --color-pure-white: #fff;
@@ -70,6 +72,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+.img-full-width {
+  width: 100%;
+}
+
 .big-display-link:link, .big-display-link:visited, .big-display-link:hover, .big-display-link:active {
   font-family: var(--font-display);
   font-size: var(--font-size-large);
@@ -82,6 +88,23 @@ h1, h2, h3, h4, h5, h6 {
   font-size: var(--font-size-medium-large);
   background-color: var(--foreground-color);
   color: var(--background-color);
+}
+
+.link-color-dark {
+  text-decoration: none;
+  color: var(--color-medium-gray);
+}
+
+.link-color-light {
+  text-decoration: none;
+  color: var(--color-light-gray);
+}
+
+.link-centered-in-full-width {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.9em;
 }
 
 .menu-link-1 {
@@ -116,6 +139,19 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: var(--s1);
 }
 
+.l-flex-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.l-col-25 {
+  width: 25%;
+}
+
+.l-col-75 {
+  width: 75%;
+}
+
 .l-two-layers {
   position: relative;
   width: 100%;
@@ -144,6 +180,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 .l-stack--tightly-spaced > * + * {
   margin-top: var(--s075);
+}
+
+.l-full-height-content-with-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+.l-full-height-content-with-footer > *:first-of-type {
+  height: 100%;
 }
 
 .l-fullscreen-box {
@@ -225,6 +271,9 @@ h1, h2, h3, h4, h5, h6 {
 .full-cover-image--left-anchor {
   object-position: 0 center;
 }
+.full-cover-image--corner-anchor {
+  object-position: 0 0;
+}
 
 .full-sized-image--vertical {
   width: 100vw;
@@ -235,6 +284,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .u-align-right {
   text-align: right !important;
+}
+
+.u-margin-align-right {
+  display: block;
+  margin-left: auto !important;
 }
 
 .u-no-margin {
