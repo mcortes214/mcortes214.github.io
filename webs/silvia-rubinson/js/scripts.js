@@ -21,6 +21,9 @@ $('.text-slider').slick({
 //Equal height for images
 let equalRows = new EqualHeightRows('.js-equal-height-row');
 
+window.addEventListener('resize', function(){
+    equalRows.resizeImages();
+});
 
 //Panzoom
 
