@@ -195,8 +195,22 @@ h1, h2, h3, h4, h5, h6 {
   width: 50%;
 }
 
-.l-offset-25 {
+.l-m-offset-25 {
   margin-left: 25%;
+}
+@media screen and (max-width: 800px) {
+  .l-m-offset-25 {
+    margin-left: 0;
+  }
+}
+
+.l-m-offset-50 {
+  margin-left: 50%;
+}
+@media screen and (max-width: 800px) {
+  .l-m-offset-50 {
+    margin-left: 0;
+  }
 }
 
 .l-offset-50 {
@@ -290,30 +304,57 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-wrap: nowrap;
 }
+@media screen and (max-width: 800px) {
+  .l-two-panels {
+    flex-wrap: wrap;
+  }
+}
 .l-two-panels > *:nth-child(1) {
   width: var(--panel-wide-large);
+}
+@media screen and (max-width: 800px) {
+  .l-two-panels > *:nth-child(1) {
+    width: 100%;
+  }
 }
 .l-two-panels > *:nth-child(2) {
   width: var(--panel-wide-small);
 }
+@media screen and (max-width: 800px) {
+  .l-two-panels > *:nth-child(2) {
+    width: 100%;
+  }
+}
 .l-two-panels--narrower > *:nth-child(1) {
   width: var(--panel-wide-larger);
+}
+@media screen and (max-width: 800px) {
+  .l-two-panels--narrower > *:nth-child(1) {
+    width: 100%;
+  }
 }
 .l-two-panels--narrower > *:nth-child(2) {
   width: var(--panel-wide-smaller);
 }
+@media screen and (max-width: 800px) {
+  .l-two-panels--narrower > *:nth-child(2) {
+    width: 100%;
+  }
+}
 .l-two-panels--narrow-left > *:nth-child(1) {
   width: var(--panel-wide-smaller);
+}
+@media screen and (max-width: 800px) {
+  .l-two-panels--narrow-left > *:nth-child(1) {
+    width: 100%;
+  }
 }
 .l-two-panels--narrow-left > *:nth-child(2) {
   width: var(--panel-wide-larger);
 }
 @media screen and (max-width: 800px) {
-  .l-two-panels--narrow-left > *:nth-child(1) {
-    width: var(--panel-wide-small);
-  }
   .l-two-panels--narrow-left > *:nth-child(2) {
-    width: var(--panel-wide-large);
+    width: 100%;
   }
 }
 
@@ -343,6 +384,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .u-no-line-height {
   line-height: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .u-mobile-hidden {
+    display: none;
+  }
 }
 
 .u-align-right {
@@ -378,12 +425,24 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: var(--s3) !important;
 }
 
+.u-mt-8em {
+  margin-top: 8em;
+}
+
 .u-mb-05 {
   margin-bottom: var(--s05) !important;
 }
 
 .u-mb-1 {
   margin-bottom: var(--s1) !important;
+}
+
+.u-mb-2 {
+  margin-bottom: var(--s2) !important;
+}
+
+.u-mb-3 {
+  margin-bottom: var(--s3) !important;
 }
 
 .u-no-pointer-events {
@@ -429,5 +488,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .cft-textos-item {
   width: 50%;
-  margin-top: 8em;
+}
+@media screen and (max-width: 800px) {
+  .cft-textos-item {
+    width: 100%;
+  }
 }
