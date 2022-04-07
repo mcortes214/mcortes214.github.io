@@ -380,6 +380,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .full-sized-image--horizontal {
   height: 100vh;
+  width: auto;
 }
 
 .u-no-line-height {
