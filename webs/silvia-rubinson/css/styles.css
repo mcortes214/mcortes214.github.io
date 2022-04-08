@@ -363,6 +363,10 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 0;
 }
 
+.u-non-decorated-link {
+  text-decoration: none;
+}
+
 .full-cover-image {
   width: 100%;
   height: 100%;
