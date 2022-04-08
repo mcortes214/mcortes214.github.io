@@ -430,8 +430,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: var(--s3) !important;
 }
 
-.u-mt-8em {
+.u-d-mt-8em {
   margin-top: 8em;
+}
+@media screen and (max-width: 800px) {
+  .u-d-mt-8em {
+    margin-top: 3em;
+  }
 }
 
 .u-mb-05 {
