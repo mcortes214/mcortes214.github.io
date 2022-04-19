@@ -155,6 +155,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: var(--s1);
 }
 
+.l-flex {
+  --d: row;
+  --j: center;
+  --a: center;
+  flex-direction: var(--d);
+  justify-content: var(--j);
+  align-items: var(--a);
+}
+
 .l-flex-row {
   display: flex;
   flex-wrap: nowrap;
@@ -403,6 +412,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .u-align-right {
   text-align: right !important;
+}
+
+.u-align-center {
+  text-align: center !important;
 }
 
 .u-margin-align-right {
