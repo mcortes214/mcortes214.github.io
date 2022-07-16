@@ -54,7 +54,7 @@ html(lang="es-AR")
           .v-center
             h3 Sobre mí
             p Soy licenciado en Artes Electrónicas, y mis principales intereses son la programación, el arte y el diseño.
-            p Durante varios años trabajé en un museo de arte, investigando y combinando tecnologías para facilitar el funcionamiento de exhibiciones. Desde entonces me gusta explorar distintos caminos y aprender nuevas herramientas con cada proyecto que realizo.
+            p Siempre me gustó investigar y combinar tecnologías para aplicarlas a proyectos artísticos; en 2018 empecé a trabajar creando webs, y desde ese momento comencé a especializarme en herramientas, conocimientos y técnicas que me ayudan a enriquecer la presentación visual y sonora de cada sitio que hago.
             //- p En los últimos dos años comencé a trabajar en sitios web de proyectos independientes en los que participé, y también en la creación de sitios para clientes en un equipo freelance.
             a.btn.btn-primary#btn-verProyectos(href="#proyectos") Ver proyectos
             a.btn.btn-secondary#btn-cv(href="docs/maximiliano-cortes.pdf") Descargar CV
@@ -66,12 +66,14 @@ html(lang="es-AR")
         .col.col-100
           .col-50
             //- h3 Proyectos individuales
-            +widgetProyecto('Mariela Yeregui','2021 // Portfolio de artista','https://marielayeregui.com/','img/web-mariela-yeregui.png', 'Diseño y programación')
-            +widgetProyecto('Colectivo Arkhé','2019 // Colectivo de investigación y producción audiovisual','https://colectivoarkhe.com.ar','img/web-colectivo-arkhe.png', 'Diseño y programación')
-          .col-50
-            //- h3 Proyectos grupales
             +widgetProyecto('Máquina de Regar','2021 // Exhibición virtual colectiva','https://www.maquinaderegar.com.ar','img/web-maquina-de-regar.png', 'Programación')
             +widgetProyecto('Sound Window (Nicolás Melmann)','2020 // Experiencia audiovisual interactiva','https://melmann.site/sound-window','img/web-sound-window.png', 'Diseño y programación')
+
+          .col-50
+            //- h3 Proyectos grupales
+            +widgetProyecto('Mariela Yeregui','2021 // Portfolio de artista','https://marielayeregui.com/','img/web-mariela-yeregui.png', 'Diseño y programación')
+            +widgetProyecto('Colectivo Arkhé','2019 // Colectivo de investigación y producción audiovisual','https://colectivoarkhe.com.ar','img/web-colectivo-arkhe.png', 'Diseño y programación')
+
       svg(viewbox='0 0 100 100', preserveAspectRatio='none').backgroundFlecha
         path(d='M0 0 V 100 H 100 V 0 L50 50 Z',fill="#fafafa",stroke="transparent")
             
