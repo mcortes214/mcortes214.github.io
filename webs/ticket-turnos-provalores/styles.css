@@ -1,0 +1,150 @@
+/* Fuentes */
+
+@font-face {
+    font-family: 'myriad-pro';
+    font-weight: bold;
+    src: url('MyriadPro-Semibold.otf');
+}
+@font-face {
+    font-family: 'myriad-pro';
+    font-weight: normal;
+    src: url('MyriadPro-Regular.otf');
+}
+
+/* Root/reset */
+
+:root {
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    color: hsl(0, 5%, 38%);
+}
+
+img {
+    display: block;
+}
+
+h1 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+
+/* Global */
+
+.screen {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 1.8s;
+    opacity: 0; /* default: non-visible */
+    pointer-events: none;
+}
+
+/* Estados de pantallas */
+
+.screen--visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Pantalla de carga de datos */
+
+.screen.data-form-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.screen.data-form-screen > * {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.logo-provalores {
+    width: 100px;
+}
+
+
+.form {
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form > * {
+    margin-bottom: 10px;
+}
+
+label {
+    text-align: left;
+}
+
+input {
+    font-family: inherit;
+    color: inherit;
+    height: 2em;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    border-radius: 7px;
+    padding-left: 10px;
+}
+
+.screen.ticket-preview-screen {
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+
+.boton-descargar-ticket {
+    width: 300px;
+    border-radius: 7px;
+    padding-left: 10px;
+    font-family: inherit;
+    color: inherit;
+}
+
+input[type="submit"], .boton-descargar-ticket{
+    height: 2.5em;
+    background-color: #ec2227;
+    color: white;
+    font-size: 1em;
+    font-weight: normal;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 1.5em;
+    transition: 0.2s;
+}
+
+input[type="submit"]:hover, .boton-descargar-ticket:hover{
+    height: 2.5em;
+    background-color: #ec4e51;
+    color: white;
+    font-size: 1em;
+    font-weight: normal;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 1.5em;
+}
+
+
+
+
+
+
+#ticket-canvas {
+    border: 1px solid black;
+    max-height: 80vh;
+}

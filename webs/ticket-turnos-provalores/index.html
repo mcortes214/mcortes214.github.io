@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <title>Generación de turnos</title>
+</head>
+<body>
+
+    <!-- Pantalla de carga de datos -->
+
+    <div class="screen data-form-screen">
+        
+        <img class="logo-provalores" src="logo-provalores.svg" alt="Logo Provalores">
+
+        <h1><strong>Provalores</strong> | Generación de Turnos</h1>
+        
+        <form id="data-form" class="form form--awaiting">
+            <label for="input-name"> <strong>Nombre y apellido</strong> (primera persona):</label>
+            <input required type="text" name="input-name-1" id="input-name-1">
+
+            <label for="input-name"> <strong>Nombre y apellido</strong> (segunda persona - opcional):</label>
+            <input type="text" name="input-name-2" id="input-name-2">
+
+            <label for="input-date"><strong>Fecha del turno:</strong></label>
+            <input required type="date" name="input-date" id="input-date">
+
+            <label for="input-time"><strong>Horario del turno:</strong></label>
+            <input required type="time" name="input-time" id="input-time">
+
+            <label for="input-time"><strong>Vencimiento del turno:</strong></label>
+            <input required type="time" name="input-max-time" id="input-max-time">
+
+            <label for="input-ticket-number"><strong>Número de ticket</strong> (3 cifras):</label>
+            <input required minlength="3" maxlength="3" type="number" name="input-ticket-number" id="input-ticket-number">
+
+            <input type="submit" form="data-form" value="Generar Turno">
+        </form>
+    </div>
+
+    <!-- Pantalla de preview de ticket -->
+
+    <div class="screen ticket-preview-screen">
+        <span>Esta previsualización tiene menos resolución que la imagen real. Presione <strong>descargar ticket</strong> para descargar el ticket en resolución completa.</span>
+        <br>
+        <button class="boton-descargar-ticket" id="descargar-ticket">Descargar ticket</button>
+        <button class="boton-descargar-ticket" id="nuevo-ticket">Generar nuevo ticket</button>
+        <br>
+        <br>
+        <canvas id="ticket-canvas" width="1000px" height="1300px"></canvas>
+    </div>
+
+    <script src="form.js"></script>
+    <script src="screenManager.js"></script>
+    <script src="canvasFunctions.js"></script>
+    <script src="functions.js"></script>
+</body>
+</html>
