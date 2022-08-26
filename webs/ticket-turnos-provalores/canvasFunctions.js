@@ -29,7 +29,10 @@ const loadTicketFonts = () => {
         });
         Promise.all([fontBold.load(), fontRegular.load()]).then(() => {
             resolve();
-        });
+        })
+        .catch(reason => {
+            console.log(reason)
+          });
     });
 }
 
