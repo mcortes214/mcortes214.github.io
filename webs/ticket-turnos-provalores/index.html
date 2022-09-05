@@ -23,11 +23,14 @@
         <h1><strong>Provalores</strong> | Generación de Turnos</h1>
         
         <form id="data-form" class="form form--awaiting">
-            <label for="input-name"> <strong>Nombre y apellido</strong> (primera persona):</label>
+            <label for="input-name-1"> <strong>Nombre y apellido</strong> (primera persona):</label>
             <input required type="text" name="input-name-1" id="input-name-1">
 
-            <label for="input-name"> <strong>Nombre y apellido</strong> (segunda persona - opcional):</label>
+            <label for="input-name-2"> <strong>Nombre y apellido</strong> (segunda persona - opcional):</label>
             <input type="text" name="input-name-2" id="input-name-2">
+
+            <label for="business-name"> <strong>Nombre de empresa</strong>:</label>
+            <input type="text" name="business-name" id="business-name">
 
             <label for="input-date"><strong>Fecha del turno:</strong></label>
             <input required type="date" name="input-date" id="input-date">
@@ -35,11 +38,17 @@
             <label for="input-time"><strong>Horario del turno:</strong></label>
             <input required type="time" name="input-time" id="input-time">
 
-            <label for="input-time"><strong>Vencimiento del turno:</strong></label>
+            <label for="input-max-time"><strong>Vencimiento del turno:</strong></label>
             <input required type="time" name="input-max-time" id="input-max-time">
 
-            <label for="input-ticket-number"><strong>Número de ticket</strong> (3 cifras):</label>
-            <input required minlength="3" maxlength="3" type="number" name="input-ticket-number" id="input-ticket-number">
+            <label for="input-ticket-number-1">Número de ticket <strong>personal</strong> (3 cifras):</label>
+            <input required minlength="3" maxlength="3" type="number" name="input-ticket-number-1" id="input-ticket-number-1">
+
+            <label for="input-ticket-number-2">Número de ticket <strong>de acompañante</strong> (3 cifras):</label>
+            <input required minlength="3" maxlength="3" type="number" name="input-ticket-number-2" id="input-ticket-number-2">
+
+            <label for="input-ticket-number-3">Número de ticket <strong>de empresa</strong> (3 cifras):</label>
+            <input required minlength="3" maxlength="3" type="number" name="input-ticket-number-3" id="input-ticket-number-3">
 
             <input type="submit" form="data-form" value="Generar Turno">
         </form>
@@ -54,7 +63,7 @@
         <button class="boton-descargar-ticket" id="nuevo-ticket">Generar nuevo ticket</button>
         <br>
         <br>
-        <canvas id="ticket-canvas" width="1000px" height="1300px"></canvas>
+        <canvas id="ticket-canvas" width="1000px" height="1700px"></canvas>
     </div>
 
     <script src="form.js"></script>

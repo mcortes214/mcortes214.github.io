@@ -8,14 +8,27 @@ const randomLetters = (n) => {
     return str;
 }
 
-const renderTicketBackground = (ctx) => {
-    return new Promise ((resolve) => {
+const loadImageAsset = (ctx, url) => {
+    return new Promise((resolve) => {
         const img = new Image();
         img.addEventListener('load', () => {
             ctx.drawImage(img, 0, 0);
             resolve();
         }, false);
-        img.src = 'base-ticket.png';
+        img.src = url;
+    });
+}
+
+const renderTicketBackground = (ctx, urls) => {
+    return new Promise((resolve) => {
+        let imageLoadedPromises = [];
+        for (let url of urls){
+            imageLoadedPromises.push(loadImageAsset(ctx, url));
+        }
+        Promise.all(imageLoadedPromises).then(() => {
+            console.log('all images loaded. Resolving');
+            resolve();
+        });
     });
 }
 
@@ -37,6 +50,21 @@ const loadTicketFonts = () => {
 }
 
 const renderTicketData = (ctx, ticketData) => {
+    console.log('rendering data');
+
+    //Dummy data (comment afterwards, don't delete)
+    // ticketData = {
+    //     firstName: ['AMALIO PÉREZ SALIERI', 'DEL VIRREY'],
+    //     secondName: ['SUSANA GIMÉNEZ', 'GARCÍA LORCA'],
+    //     businessName: 'AMALIO Y SUSANA MARISCOS UNIDOS LTD.',
+    //     appointmentDate: '1/9/1922',
+    //     appointmentTime: '23:31',
+    //     expirationTime: '23:33',
+    //     ticketCode1: 'GBZ-103',
+    //     ticketCode2: 'GKA-491',
+    //     ticketCode3: 'UVX-915',
+    // };
+
     console.log('renderTicketData', ticketData);
     //Global
     ctx.fillStyle = '#484040';
@@ -45,12 +73,12 @@ const renderTicketData = (ctx, ticketData) => {
 
     ctx.textAlign = 'center';
 
-    ctx.font = 'normal 70px myriad-pro';
+    ctx.font = 'normal 55px myriad-pro';
     const measurement = ctx.measureText('HEIGHT SAMPLE');
     const nameLineHeight = 20 + measurement.actualBoundingBoxAscent + measurement.actualBoundingBoxDescent;
     const spaceBetweenNames = 30;
 
-    nameBoxTopEdge = 400;
+    nameBoxTopEdge = 375;
     nameBoxHeight = nameLineHeight * 4 + spaceBetweenNames;
 
     //Calcular y renderizar líneas de nombres
@@ -73,48 +101,57 @@ const renderTicketData = (ctx, ticketData) => {
         }
     }
 
+    //Sección - Empresa
+
+    ctx.font = 'normal 38px myriad-pro';
+    ctx.fillText(ticketData.businessName, 500, 655);
+
     //Sección - Data
     let lineHeaderWidth;
     ctx.textAlign = 'left';
 
         //Fecha
         ctx.font = 'bold 40px myriad-pro';
-        ctx.fillText('Fecha del turno: ', 97, 765);
+        ctx.fillText('Fecha del turno: ', 137, 765+80);
         lineHeaderWidth = ctx.measureText('Fecha del turno: ').width;
         ctx.font = 'normal 40px myriad-pro';
-        ctx.fillText(ticketData.appointmentDate, 97 + lineHeaderWidth, 765);
+        ctx.fillText(ticketData.appointmentDate, 137 + lineHeaderWidth, 845);
 
         //Horario
         ctx.font = 'bold 40px myriad-pro';
-        ctx.fillText('Horario del turno: ', 97, 872);
+        ctx.fillText('Horario del turno: ', 137, 937);
         lineHeaderWidth = ctx.measureText('Horario del turno: ').width;
         ctx.font = 'normal 40px myriad-pro';
-        ctx.fillText(ticketData.appointmentTime, 97 + lineHeaderWidth, 872);
+        ctx.fillText(ticketData.appointmentTime, 137 + lineHeaderWidth, 937);
 
         //Vencimiento
         ctx.font = 'bold 40px myriad-pro';
-        ctx.fillText('Válido hasta: ', 97, 979);
+        ctx.fillText('Válido hasta: ', 137, 1029);
         lineHeaderWidth = ctx.measureText('Válido hasta: ').width;
         ctx.font = 'normal 40px myriad-pro';
-        ctx.fillText(ticketData.expirationTime, 97 + lineHeaderWidth, 979);
+        ctx.fillText(ticketData.expirationTime, 137 + lineHeaderWidth, 1029);
 
     //Código de turno
-    ctx.font = 'normal 110px myriad-pro';
+    ctx.font = 'normal 65px myriad-pro';
     ctx.textAlign = 'center';
-    ctx.fillText(`- ${ticketData.ticketCode} -`, 500, 1150);
+    ctx.fillText(`- ${ticketData.ticketCode1} -`, 500, 1280);
+
+    ctx.fillText(`- ${ticketData.ticketCode2} -`, 500, 1280 + 175);
+
+    ctx.fillText(`- ${ticketData.ticketCode3} -`, 500, 1280 + 175*2);
 
 }
 
 const renderTicket = (el, ticketData) => {
     console.log('renderTicket', ticketData)
     const ctx = el.getContext('2d');
+    console.log(ctx);
 
-    renderTicketBackground(ctx)
-    .then(loadTicketFonts)
+    renderTicketBackground(ctx,['base-ticket.png'])
+    .then(loadTicketFonts) //DEBUG
     .then(() => {renderTicketData(ctx, ticketData)});
-
 }
 
-const renderName = (canvas, text, maxWidth) => {
-    //Esta función es para que el nombre se muestre en varias líneas si es largo
-}
+// const renderName = (canvas, text, maxWidth) => {
+//     //Esta función es para que el nombre se muestre en varias líneas si es largo
+// }

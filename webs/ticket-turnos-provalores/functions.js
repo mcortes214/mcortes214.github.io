@@ -49,11 +49,14 @@ const processFormData = (formData) => {
     ticketData.appointmentDate = formData['input-date'].split('-').reverse().join('/');
     ticketData.appointmentTime = formData['input-time'];
     ticketData.expirationTime = formData['input-max-time'];
-    ticketData.ticketCode = randomLetters(3) + ' ' + formData['input-ticket-number'];
+    ticketData.ticketCode1 = randomLetters(3) + ' ' + formData['input-ticket-number-1'];
+    ticketData.ticketCode2 = randomLetters(3) + ' ' + formData['input-ticket-number-2'];
+    ticketData.ticketCode3 = randomLetters(3) + ' ' + formData['input-ticket-number-3'];
 
     //Nombre
     ticketData.firstName = splitSentence(formData['input-name-1'].toUpperCase(), 20);
     ticketData.secondName = splitSentence(formData['input-name-2'].toUpperCase(), 20);
+    ticketData.businessName = formData['business-name'].toUpperCase();
     return ticketData;
 };
 
@@ -89,3 +92,4 @@ document.querySelector('#descargar-ticket').addEventListener('click', () => {
 document.querySelector('#nuevo-ticket').addEventListener('click', () => {
     window.location.reload();
 });
+
