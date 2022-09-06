@@ -132,13 +132,29 @@ const renderTicketData = (ctx, ticketData) => {
         ctx.fillText(ticketData.expirationTime, 137 + lineHeaderWidth, 1029);
 
     //Código de turno
-    ctx.font = 'normal 65px myriad-pro';
     ctx.textAlign = 'center';
+
+    ctx.font = 'bold 40px myriad-pro';
+    ctx.fillText('Estimado Cliente, su código personal es:', 500, 1280 - 80);
+
+    ctx.font = 'normal 65px myriad-pro';
     ctx.fillText(`- ${ticketData.ticketCode1} -`, 500, 1280);
 
-    ctx.fillText(`- ${ticketData.ticketCode2} -`, 500, 1280 + 175);
+    if(ticketData.ticketCode2){
+        ctx.font = 'bold 40px myriad-pro';
+        ctx.fillText('Su código de acompañante es:', 500, 1280 + 175 - 80);
+    
+        ctx.font = 'normal 65px myriad-pro';
+        ctx.fillText(`- ${ticketData.ticketCode2} -`, 500, 1280 + 175);
+    }
 
-    ctx.fillText(`- ${ticketData.ticketCode3} -`, 500, 1280 + 175*2);
+    if(ticketData.ticketCode3){
+        ctx.font = 'bold 40px myriad-pro';
+        ctx.fillText('Su código de empresa es:', 500, 1280 + 175*2 - 80);
+    
+        ctx.font = 'normal 65px myriad-pro';
+        ctx.fillText(`- ${ticketData.ticketCode3} -`, 500, 1280 + 175*2);
+    }
 
 }
 

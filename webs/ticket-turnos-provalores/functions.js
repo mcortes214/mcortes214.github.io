@@ -50,9 +50,13 @@ const processFormData = (formData) => {
     ticketData.appointmentTime = formData['input-time'];
     ticketData.expirationTime = formData['input-max-time'];
     ticketData.ticketCode1 = randomLetters(3) + ' ' + formData['input-ticket-number-1'];
-    ticketData.ticketCode2 = randomLetters(3) + ' ' + formData['input-ticket-number-2'];
-    ticketData.ticketCode3 = randomLetters(3) + ' ' + formData['input-ticket-number-3'];
-
+    if(formData['input-ticket-number-2']){
+        ticketData.ticketCode2 = randomLetters(3) + ' ' + formData['input-ticket-number-2'];
+    }
+    if(formData['input-ticket-number-3']){
+        ticketData.ticketCode3 = randomLetters(3) + ' ' + formData['input-ticket-number-3'];
+    }
+    
     //Nombre
     ticketData.firstName = splitSentence(formData['input-name-1'].toUpperCase(), 20);
     ticketData.secondName = splitSentence(formData['input-name-2'].toUpperCase(), 20);
