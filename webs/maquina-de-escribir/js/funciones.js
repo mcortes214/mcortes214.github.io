@@ -1,5 +1,5 @@
 
-const font = new FontFace('typewriter', 'url(/fonts/bohemian.ttf)');
+const font = new FontFace('typewriter', 'url(../fonts/bohemian.ttf)');
 let TW;
 
 font.load().then(() => {
