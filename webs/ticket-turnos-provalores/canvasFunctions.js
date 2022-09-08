@@ -131,30 +131,75 @@ const renderTicketData = (ctx, ticketData) => {
         ctx.font = 'normal 40px myriad-pro';
         ctx.fillText(ticketData.expirationTime, 137 + lineHeaderWidth, 1029);
 
-    //Código de turno
-    ctx.textAlign = 'center';
+    //Códigos de turno
 
-    ctx.font = 'bold 40px myriad-pro';
-    ctx.fillText('Estimado Cliente, su código personal es:', 500, 1280 - 80);
 
-    ctx.font = 'normal 65px myriad-pro';
-    ctx.fillText(`- ${ticketData.ticketCode1} -`, 500, 1280);
 
-    if(ticketData.ticketCode2){
+    const possibleCodes = [
+        {
+            code: ticketData.ticketCode1,
+            label: ['Estimado Cliente, su ', 'código personal', ' es:'],
+        },
+        {
+            code: ticketData.ticketCode2,
+            label: ['Su ', 'código de acompañante', ' es:'],
+        },
+        {
+            code: ticketData.ticketCode3,
+            label: ['Su ', 'código de empresa', ' es:',],
+        },
+    ];
+    const codesAvailable = possibleCodes.filter((val) => {
+        return val.code !== undefined;
+    });
+    console.log(codesAvailable)
+
+    const canvasWidth = 1000;
+    const codeBoxTop = 1150;
+    const codeBoxHeight = 500;
+    const codeHeight = Math.floor(codeBoxHeight / 3);
+    let currentOffset = codeBoxTop + codeHeight * (3 - codesAvailable.length) / 2;
+
+    // ctx.textAlign = 'center';
+
+    for (let codeLine of codesAvailable) {
+
+        //Label
+        ctx.textAlign = 'left';
+        const codeLabel = codeLine.label;
+        const wholeLine = codeLabel.reduce((acc, val) => acc += val, '');
+
+        ctx.font = 'normal 40px myriad-pro';
+        let xPosition = canvasWidth/2 - ctx.measureText(wholeLine).width/2;
+        console.log(xPosition);
+        
+        ctx.font = 'normal 40px myriad-pro';
+        ctx.fillText(codeLabel[0], xPosition, currentOffset);
+        xPosition += ctx.measureText(codeLabel[0]).width;
+
         ctx.font = 'bold 40px myriad-pro';
-        ctx.fillText('Su código de acompañante es:', 500, 1280 + 175 - 80);
-    
+        ctx.fillText(codeLabel[1], xPosition, currentOffset);
+        xPosition += ctx.measureText(codeLabel[1]).width;
+
+        ctx.font = 'normal 40px myriad-pro';
+        ctx.fillText(codeLabel[2], xPosition, currentOffset);
+
+        //Code
+        ctx.textAlign = 'center';
         ctx.font = 'normal 65px myriad-pro';
-        ctx.fillText(`- ${ticketData.ticketCode2} -`, 500, 1280 + 175);
+        ctx.fillText(`- ${codeLine.code} -`, 500, currentOffset + 80);
+        currentOffset += codeHeight;
     }
 
-    if(ticketData.ticketCode3){
-        ctx.font = 'bold 40px myriad-pro';
-        ctx.fillText('Su código de empresa es:', 500, 1280 + 175*2 - 80);
-    
-        ctx.font = 'normal 65px myriad-pro';
-        ctx.fillText(`- ${ticketData.ticketCode3} -`, 500, 1280 + 175*2);
-    }
+    //Delimitadores (debug)
+    // ctx.lineWidth = 3;
+    // ctx.beginPath();
+    // ctx.moveTo(0, codeBoxTop);
+    // ctx.lineTo(1000, codeBoxTop);
+    // ctx.moveTo(0, codeBoxTop    + codeBoxHeight);
+    // ctx.lineTo(1000, codeBoxTop + codeBoxHeight);
+    // ctx.stroke();
+    // ctx.closePath();
 
 }
 
