@@ -71,7 +71,7 @@ const screenManager = new ScreenManager({
         'dataForm': document.querySelector('.data-form-screen'),
         'ticketPreview': document.querySelector('.ticket-preview-screen'),
     },
-    initialScreen: 'ticketPreview'
+    initialScreen: 'dataForm'
 });
 
 const dataForm = new Form(document.querySelector('#data-form'), (e) => {
@@ -88,17 +88,17 @@ const dataForm = new Form(document.querySelector('#data-form'), (e) => {
 });
 
 //No borrar - comentar y dejar para futuro testing
-renderTicket(document.querySelector('canvas'), {
-    firstName: ['PEPITO CIBRIAN'],
-    secondName: ['SUSANA GIMENEZ'],
-    businessName: ['PARRILLA PEPE & SUSI SRL.'],
-    appointmentDate: '12/12/1018',
-    appointmentTime: '15:51',
-    expirationTime: '15:52',
-    ticketCode1: 'IZF 195',
-    ticketCode2: 'KBZ 917',
-    ticketCode3: 'BJZ 569',
-});
+// renderTicket(document.querySelector('canvas'), {
+//     firstName: ['PEPITO CIBRIAN'],
+//     secondName: ['SUSANA GIMENEZ'],
+//     businessName: ['PARRILLA PEPE & SUSI SRL.'],
+//     appointmentDate: '12/12/1018',
+//     appointmentTime: '15:51',
+//     expirationTime: '15:52',
+//     ticketCode1: 'IZF 195',
+//     ticketCode2: 'KBZ 917',
+//     ticketCode3: 'BJZ 569',
+// });
 
 
 //Listeners
