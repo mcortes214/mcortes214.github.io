@@ -63,7 +63,7 @@ html(lang="es-AR")
     section#proyectos
       .container.container-padding
         .col.col-100
-          h2.h-center Proyectos
+          h2.h-center Trabajos
         .col.col-100
           .col-50
             //- h3 Proyectos individuales
@@ -76,6 +76,10 @@ html(lang="es-AR")
             //- h3 Proyectos grupales
             +widgetProyecto('Mariela Yeregui','2021 // Portfolio de artista','https://marielayeregui.com/','img/web-mariela-yeregui.png', 'Diseño y programación')
             +widgetProyecto('Colectivo Arkhé','2019 // Colectivo de investigación y producción audiovisual','https://colectivoarkhe.com.ar','img/web-colectivo-arkhe.png', 'Diseño y programación')
+        .col.col-100
+          h2.h-center Proyectos personales
+          .col-50
+            +widgetProyecto('Generador de paisajes','2021-2022 // Aplicación gráfica','https://mcortes214.github.io/generador-de-paisajes/','img/web-generador-paisajes.png', '')
 
       svg(viewbox='0 0 100 100', preserveAspectRatio='none').backgroundFlecha
         path(d='M0 0 V 100 H 100 V 0 L50 50 Z',fill="#fafafa",stroke="transparent")
